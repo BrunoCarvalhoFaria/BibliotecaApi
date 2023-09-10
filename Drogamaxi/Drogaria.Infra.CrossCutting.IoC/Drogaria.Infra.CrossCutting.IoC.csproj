@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <ProjectReference Include="..\Drogaria.Application\Drogaria.Application.csproj" />
+	  <ProjectReference Include="..\Drogaria.Infra.Data\Drogaria.Infra.Data.csproj" />
+	  <ProjectReference Include="..\Drogaria.Domain\Drogaria.Domain.csproj" />
+	  <ProjectReference Include="..\Drogaria.Infra.CrossCutting.Identity\Drogaria.Infra.CrossCutting.Identity.csproj" />
+  </ItemGroup>
+
+</Project>

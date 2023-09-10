@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "7xtcwN5R+mvH8LyRUPb5zyBBHZfFEm7hleEgW/7DS1I20ozaP7X8g1J7dtmSridMeNg/MSjx7nXc/N0GwcRcxg==",
+  "success": true,
+  "projectFilePath": "C:\\Projetos\\Drogamaxi\\Drogaria.Domain.Core\\Drogaria.Domain.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bruno\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
+    "C:\\Users\\bruno\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\bruno\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\bruno\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
