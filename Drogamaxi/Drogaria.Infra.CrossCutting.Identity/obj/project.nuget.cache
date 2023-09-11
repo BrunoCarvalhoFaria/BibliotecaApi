@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+F8y2XAUE6ybaEso5fy/MAHfLZfNzaekgWM/9hjVFVFF0gp309V8bw/xEuIXyMxGTRMTeg+XSyReqHjUMhDRdQ==",
+  "dgSpecHash": "759tIGXmtm5WOxEZ3qukyFv9HOUhSW6LzDeHOK5rNUOT4Wv6bAmfhB7cHmQL/miGhMeLvzG9jVZUT/Sl8EcXHg==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\Drogamaxi\\Drogaria.Infra.CrossCutting.Identity\\Drogaria.Infra.CrossCutting.Identity.csproj",
   "expectedPackageFiles": [
@@ -68,7 +68,6 @@
     "C:\\Users\\bruno\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\servicestack.text\\6.10.0\\servicestack.text.6.10.0.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
-    "C:\\Users\\bruno\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\system.diagnostics.diagnosticsource\\7.0.2\\system.diagnostics.diagnosticsource.7.0.2.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",

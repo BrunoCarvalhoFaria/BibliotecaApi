@@ -1,130 +1,111 @@
 ﻿using Drogaria.Domain.Core.Models;
 using Drogaria.Domain.DTO;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Win32.SafeHandles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 using System.Linq.Expressions;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
+using Drogaria.Infra.Data;
+using Drogaria.Domain.Interfaces;
+using System;
 
-namespace Drogaria.Infra.Data.Repository
+namespace DrPay.Infra.Data.Repository
 {
-    public abstract class Repository<TEntity>: IRepository<TEntity> where TEntity : Entity<TEntity>
+    public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEntity : class
     {
-        protected readonly DrogariaDbContext Db;
+        protected readonly DbContextOptions<DrogariaDbContext> _optionsBuilder;
         protected readonly string stringConnection;
-        protected Repository(DrogariaDbContext context) {
-            this.Db = context;
-            this.stringConnection = Configuracoes.Configuration.GetConnectionString("DefaultConnection");
+        private bool disposedValue;
+
+
+        protected Repository(DrogariaDbContext context)
+        {
+            _optionsBuilder = new DbContextOptions<DrogariaDbContext>();
         }
 
-        public virtual void Adicionar(TEntity Objeto)
+        public long Id { get; protected set; }
+        public virtual bool Excluido { get; set; }
+
+        public void Excluir()
         {
-            Db.Set<TEntity>().Add(Objeto);
-            Db.Entry(Objeto).State = EntityState.Added;
-            Save();
+            Excluido = true;
         }
 
-        public virtual void Atualizar(TEntity Objeto)
+        public async Task Add(TEntity Objeto)
         {
-            try
+            using (var data = new DrogariaDbContext(_optionsBuilder))
             {
-                this.DetachEntity(Objeto, Objeto.Id);
-                Save();
-            }
-            catch (Exception e)
-            {
+                await data.Set<TEntity>().AddAsync(Objeto);
+                await data.SaveChangesAsync();
 
-                throw e;
-            }
-        }
-
-        public virtual void Remover(long id)
-        {
-            var obj = Db.Set<TEntity>().Find(id);
-            Db.Entry(obj).State = EntityState.Deleted;
-            Save();
-        }
-
-        public virtual TEntity ObterPorId(long id)
-        {
-            try
-            {
-                return Db.Set<TEntity>().AsNoTracking().FirstOrDefault(t => t.Excluido == false && t.Id == id);
-            }
-            catch (Exception e)
-            {
-
-                throw;
             }
         }
 
-        public IEnumerable<TEntity> ObterTodos()
+        public async Task Delete(TEntity Objeto)
         {
-            return Db.Set<TEntity>().AsQueryable();
-        }
-       
-        private void Save()
-        {
-            try
+            using (var data = new DrogariaDbContext(_optionsBuilder))
             {
-                Db.SaveChanges();
-            }
-            catch (DbUpdateException e)
-            {
-                var sb = new StringBuilder();
-                sb.AppendLine($"Erro> detalhe:{e?.InnerException?.InnerException?.Message}");
+                 data.Set<TEntity>().Remove(Objeto);
+                await data.SaveChangesAsync();
 
-                foreach (var eve in e.Entries)
+            }
+        }
+    
+
+        public async Task<List<TEntity>> GetAll()
+        {
+            using (var data = new DrogariaDbContext(_optionsBuilder))
+            {
+                return await data.Set<TEntity>().ToListAsync();
+
+            }
+        }
+
+        public async Task<TEntity> GetById(long Id)
+        {
+            using (var data = new DrogariaDbContext(_optionsBuilder))
+            {
+                return await data.Set<TEntity>().FindAsync(Id);
+
+            }
+
+        }
+
+        public async Task Update(TEntity Objeto)
+        {
+            using (var data = new DrogariaDbContext(_optionsBuilder))
+            {
+                data.Set<TEntity>().Update(Objeto);
+                await data.SaveChangesAsync();
+
+            }
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
                 {
-                    sb.AppendLine($"Objeto [{eve.Entity.GetType().Name}] no estado [{eve.State}] não pode ser atualizado");
+                    // TODO: dispose managed state (managed objects)
                 }
-                throw;
+
+                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
+                // TODO: set large fields to null
+                disposedValue = true;
             }
         }
-
-        public void DetachEntity(TEntity t, long entryId)
-        {
-            var attachedEntity = Db.Set<TEntity>().FirstOrDefault(x => x.Id.Equals(entryId));
-            if(attachedEntity != null)
-                Db.Entry(attachedEntity).State = EntityState.Detached;
-            Db.Entry(t).State = EntityState.Modified;
-        }
-
-
-        bool disposed = false;
-
-        SafeHandle handle = new SafeFileHandle(IntPtr.Zero, true);
-        // Public implementation of Dispose pattern callable by consumers.
+             
         public void Dispose()
         {
+            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
-
-        // Protected implementation of Dispose pattern.
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposed)
-                return;
-
-            if (disposing)
-            {
-                handle.Dispose();
-                // Free any other managed objects here.
-                //
-            }
-
-            // Free any unmanaged objects here.
-            //
-            disposed = true;
-        }
-
-       
     }
-}
+
+
+};

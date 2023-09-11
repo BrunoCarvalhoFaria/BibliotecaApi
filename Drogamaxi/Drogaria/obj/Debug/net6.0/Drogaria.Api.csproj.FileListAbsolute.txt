@@ -156,3 +156,4 @@ C:\Projetos\Drogamaxi\Drogaria\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.De
 C:\Projetos\Drogamaxi\Drogaria\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Projetos\Drogamaxi\Drogaria\bin\Debug\net6.0\Mono.TextTemplating.dll
 C:\Projetos\Drogamaxi\Drogaria\bin\Debug\net6.0\System.CodeDom.dll
+C:\Projetos\Drogamaxi\Drogaria\bin\Debug\net6.0\Drogaria.Api.staticwebassets.runtime.json

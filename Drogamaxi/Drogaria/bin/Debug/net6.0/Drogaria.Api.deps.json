@@ -15,9 +15,12 @@
           "Drogaria.Domain.Core": "1.0.0",
           "Drogaria.Infra.CrossCutting.IoC": "1.0.0",
           "FastMember": "1.5.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.21",
+          "Microsoft.AspNetCore.Identity.UI": "7.0.10",
           "Microsoft.DotNet.PlatformAbstractions": "3.1.6",
           "Microsoft.EntityFrameworkCore": "7.0.10",
           "Microsoft.EntityFrameworkCore.Design": "7.0.10",
+          "Microsoft.EntityFrameworkCore.Tools": "7.0.10",
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
@@ -309,6 +312,7 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Identity.UI/7.0.10": {},
       "Microsoft.AspNetCore.Metadata/6.0.21": {
         "runtime": {
           "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {
@@ -380,6 +384,11 @@
             "assemblyVersion": "7.0.10.0",
             "fileVersion": "7.0.1023.36204"
           }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Tools/7.0.10": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "7.0.10"
         }
       },
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {},
@@ -1471,6 +1480,13 @@
       "path": "microsoft.aspnetcore.identity.entityframeworkcore/6.0.21",
       "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.6.0.21.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Identity.UI/7.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SxlAutmDx+pj1ENwh3lFSgAKSkUUMA1uGl8zCfL7uXbnwjSDvUZrMqGf7vahY0Ts2uqfQOjrP5NTMFn3QXSPsg==",
+      "path": "microsoft.aspnetcore.identity.ui/7.0.10",
+      "hashPath": "microsoft.aspnetcore.identity.ui.7.0.10.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Metadata/6.0.21": {
       "type": "package",
       "serviceable": true,
@@ -1533,6 +1549,13 @@
       "sha512": "sha512-PO2QB2Du+pW210UHmepYR12bk+ZOZJCiNkA7zEAxWs+vzvrRAMsUPlDlfgX2LXE7NBsnb0uvZp7a1/qqKf3fRQ==",
       "path": "microsoft.entityframeworkcore.relational/7.0.10",
       "hashPath": "microsoft.entityframeworkcore.relational.7.0.10.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Tools/7.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+ZctjoxaO3ZOxZGbnwjsycBbFmwcKiwbvoaIbaE4k693rYGo42svOVV+BAt+QbddkBnaAmikp8iWeus33Qj5mw==",
+      "path": "microsoft.entityframeworkcore.tools/7.0.10",
+      "hashPath": "microsoft.entityframeworkcore.tools.7.0.10.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
       "type": "package",

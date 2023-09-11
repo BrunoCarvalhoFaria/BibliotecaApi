@@ -20,6 +20,7 @@ namespace Drogaria.Domain.Core.Models
             Excluido = true;
         }
 
+        public abstract bool EhValido();
         public ValidationResult ValidationResult { get; protected set; }
 
         public override bool Equals(object obj)
@@ -38,6 +39,11 @@ namespace Drogaria.Domain.Core.Models
             return a.Equals(b);
         }
         public static bool operator !=(Entity<T> a, Entity<T> b) { return !(a == b); }
+
+        public override int GetHashCode()
+        {
+            return (GetType().GetHashCode() * 907) + Id.GetHashCode();
+        }
 
         public override string ToString()
         {

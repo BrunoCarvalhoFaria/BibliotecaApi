@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wH1FXhWmj6sXBnDNcOD5PWEjTBLm7/YeAhGPCZ4D3xsgAYf79YjmoQ2rlL8KADakIhbfyTMNC/8bFdAqTOPw2A==",
+  "dgSpecHash": "5iZwj2MyQM7keTEPFzIiSeYD42+GEzVS6eEBOKA5pnPNOIYx4MtV7SdfmvfYMOimWXAdyY4B8l25j3kF7/9qIQ==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\Drogamaxi\\Drogaria.Application\\Drogaria.Application.csproj",
   "expectedPackageFiles": [
@@ -80,7 +80,6 @@
     "C:\\Users\\bruno\\.nuget\\packages\\restsharp\\110.2.0\\restsharp.110.2.0.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\servicestack.text\\6.10.0\\servicestack.text.6.10.0.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
-    "C:\\Users\\bruno\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\system.diagnostics.diagnosticsource\\7.0.2\\system.diagnostics.diagnosticsource.7.0.2.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
