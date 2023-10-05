@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Drogaria.Domain.Entities.ApplicationUsers;
 using Drogaria.Domain.DTO;
 using Microsoft.Extensions.Configuration;
+using Drogaria.Domain.Entities.Caixas;
 
 namespace Drogaria.Infra.Data
 {
@@ -19,6 +20,7 @@ namespace Drogaria.Infra.Data
         //public DbSet<Message> Message { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<Vendedor> Vendedor { get; set; }
+        public DbSet<Caixa> Caixa { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -39,6 +41,7 @@ namespace Drogaria.Infra.Data
 
 
             modelBuilder.AddConfiguration(new VendedorMapping());
+            modelBuilder.AddConfiguration(new CaixaMapping());
 
             base.OnModelCreating(modelBuilder);
         }

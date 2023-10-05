@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTO\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Drogaria.Domain.Core\Drogaria.Domain.Core.csproj" />
     <ProjectReference Include="..\Drogaria.Infra.Data\Drogaria.Infra.Data.csproj" />
   </ItemGroup>

@@ -1,0 +1,12 @@
+C:\Projetos\Drogamaxi\Drogaria.Domain.Core\bin\Debug\net7.0\Drogaria.Domain.Core.deps.json
+C:\Projetos\Drogamaxi\Drogaria.Domain.Core\bin\Debug\net7.0\Drogaria.Domain.Core.dll
+C:\Projetos\Drogamaxi\Drogaria.Domain.Core\bin\Debug\net7.0\Drogaria.Domain.Core.pdb
+C:\Projetos\Drogamaxi\Drogaria.Domain.Core\obj\Debug\net7.0\Drogaria.Domain.Core.csproj.AssemblyReference.cache
+C:\Projetos\Drogamaxi\Drogaria.Domain.Core\obj\Debug\net7.0\Drogaria.Domain.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\Drogamaxi\Drogaria.Domain.Core\obj\Debug\net7.0\Drogaria.Domain.Core.AssemblyInfoInputs.cache
+C:\Projetos\Drogamaxi\Drogaria.Domain.Core\obj\Debug\net7.0\Drogaria.Domain.Core.AssemblyInfo.cs
+C:\Projetos\Drogamaxi\Drogaria.Domain.Core\obj\Debug\net7.0\Drogaria.Domain.Core.csproj.CoreCompileInputs.cache
+C:\Projetos\Drogamaxi\Drogaria.Domain.Core\obj\Debug\net7.0\Drogaria.Domain.Core.dll
+C:\Projetos\Drogamaxi\Drogaria.Domain.Core\obj\Debug\net7.0\refint\Drogaria.Domain.Core.dll
+C:\Projetos\Drogamaxi\Drogaria.Domain.Core\obj\Debug\net7.0\Drogaria.Domain.Core.pdb
+C:\Projetos\Drogamaxi\Drogaria.Domain.Core\obj\Debug\net7.0\ref\Drogaria.Domain.Core.dll

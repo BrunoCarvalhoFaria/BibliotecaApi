@@ -94,6 +94,50 @@ namespace Drogaria.Infra.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Drogaria.Domain.Entities.Caixas.Caixa", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("CascadeMode")
+                        .HasColumnType("int");
+
+                    b.Property<DateTimeOffset>("DataAbertura")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTimeOffset>("DataFechamento")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<float>("EntradaValor")
+                        .HasColumnType("float");
+
+                    b.Property<bool>("Excluido")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<float>("Sangria")
+                        .HasColumnType("float");
+
+                    b.Property<string>("UsuarioId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<float>("ValorAbertura")
+                        .HasColumnType("float");
+
+                    b.Property<float>("ValorFechamento")
+                        .HasColumnType("float");
+
+                    b.Property<float>("VendaCartao")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Caixa", (string)null);
+                });
+
             modelBuilder.Entity("Drogaria.Domain.Entities.Vendedores.Vendedor", b =>
                 {
                     b.Property<long>("Id")
@@ -251,6 +295,17 @@ namespace Drogaria.Infra.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Drogaria.Domain.Entities.Caixas.Caixa", b =>
+                {
+                    b.HasOne("Drogaria.Domain.Entities.ApplicationUsers.ApplicationUser", "Usuario")
+                        .WithMany("Caixa")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -300,6 +355,11 @@ namespace Drogaria.Infra.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Drogaria.Domain.Entities.ApplicationUsers.ApplicationUser", b =>
+                {
+                    b.Navigation("Caixa");
                 });
 #pragma warning restore 612, 618
         }

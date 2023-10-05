@@ -14,16 +14,18 @@ using System;
 
 namespace DrPay.Infra.Data.Repository
 {
-    public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEntity : Entity<TEntity>
     {
-        protected readonly DbContextOptions<DrogariaDbContext> _optionsBuilder;
+        protected readonly DrogariaDbContext data;
         protected readonly string stringConnection;
         private bool disposedValue;
 
 
         protected Repository(DrogariaDbContext context)
         {
-            _optionsBuilder = new DbContextOptions<DrogariaDbContext>();
+            data = context;
+            stringConnection = Configuracoes.Configuration.GetConnectionString("ConnectionMysql")!;
+
         }
 
         public long Id { get; protected set; }
@@ -36,52 +38,38 @@ namespace DrPay.Infra.Data.Repository
 
         public async Task Add(TEntity Objeto)
         {
-            using (var data = new DrogariaDbContext(_optionsBuilder))
-            {
-                await data.Set<TEntity>().AddAsync(Objeto);
-                await data.SaveChangesAsync();
 
-            }
+            await data.Set<TEntity>().AddAsync(Objeto);
+            await data.SaveChangesAsync();
+
         }
 
         public async Task Delete(TEntity Objeto)
         {
-            using (var data = new DrogariaDbContext(_optionsBuilder))
-            {
-                 data.Set<TEntity>().Remove(Objeto);
-                await data.SaveChangesAsync();
+            data.Set<TEntity>().Remove(Objeto);
+            await data.SaveChangesAsync();
 
-            }
-        }
-    
-
-        public async Task<List<TEntity>> GetAll()
-        {
-            using (var data = new DrogariaDbContext(_optionsBuilder))
-            {
-                return await data.Set<TEntity>().ToListAsync();
-
-            }
         }
 
-        public async Task<TEntity> GetById(long Id)
-        {
-            using (var data = new DrogariaDbContext(_optionsBuilder))
-            {
-                return await data.Set<TEntity>().FindAsync(Id);
 
-            }
+        public List<TEntity> GetAll()
+        {
+            return  data.Set<TEntity>().Where(t => t.Excluido == false).ToList();
+
+        }
+
+        public TEntity? GetById(long Id)
+        {
+            return data.Set<TEntity>().Where(t => t.Excluido == false && t.Id == Id).FirstOrDefault();
+
 
         }
 
         public async Task Update(TEntity Objeto)
         {
-            using (var data = new DrogariaDbContext(_optionsBuilder))
-            {
-                data.Set<TEntity>().Update(Objeto);
-                await data.SaveChangesAsync();
+            data.Set<TEntity>().Update(Objeto);
+            await data.SaveChangesAsync();
 
-            }
         }
 
         protected virtual void Dispose(bool disposing)
@@ -98,7 +86,7 @@ namespace DrPay.Infra.Data.Repository
                 disposedValue = true;
             }
         }
-             
+
         public void Dispose()
         {
             // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method

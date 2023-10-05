@@ -8,8 +8,8 @@ namespace Drogaria.Domain.Interfaces
     {
         Task Add(TEntity Objeto);
         Task Delete(TEntity Objeto);
-        Task<TEntity> GetById(long Id);
-        Task<List<TEntity>> GetAll();
+        TEntity? GetById(long Id);
+        List<TEntity> GetAll();
         Task Update(TEntity Objeto);
 
     }
