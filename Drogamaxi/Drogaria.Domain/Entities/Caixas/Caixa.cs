@@ -12,7 +12,7 @@ namespace Drogaria.Domain.Entities.Caixas
     {
         public DateTimeOffset DataAbertura { get; set; }
         public DateTimeOffset DataFechamento { get; set; }
-        public string UsuarioId { get; set; }
+        public string UsuarioId { get; set; } = "";
         public float ValorAbertura { get; set; }
         public float ValorFechamento { get; set; }
         public float Sangria { get; set; }

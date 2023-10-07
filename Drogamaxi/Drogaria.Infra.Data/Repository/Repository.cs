@@ -71,6 +71,13 @@ namespace DrPay.Infra.Data.Repository
             await data.SaveChangesAsync();
 
         }
+         
+        public virtual IEnumerable<TEntity> Buscar(Expression<Func<TEntity, bool>> predicate)
+        {
+            Expression<Func<TEntity, bool>> naoExcluido = c => c.Excluido == false;
+            Expression<Func<TEntity, bool>> naoExcluidoEPredicate = naoExcluido.And(predicate);
+            return data.Set<TEntity>().Where(naoExcluidoEPredicate);
+        }
 
         protected virtual void Dispose(bool disposing)
         {

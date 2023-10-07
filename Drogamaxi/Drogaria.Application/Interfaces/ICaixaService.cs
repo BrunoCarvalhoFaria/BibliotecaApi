@@ -12,5 +12,6 @@ namespace Drogaria.Application.Interfaces
         Task<long> CaixaPost(CaixaDTO dto);
         List<CaixaDTO> CaixaGetAll();
         CaixaDTO? CaixaGetAById(long id);
+        string CaixaPut(CaixaDTO dto);
     }
 }

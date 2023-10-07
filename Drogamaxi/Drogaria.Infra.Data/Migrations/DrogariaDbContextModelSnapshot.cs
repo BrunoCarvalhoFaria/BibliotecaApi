@@ -138,6 +138,101 @@ namespace Drogaria.Infra.Data.Migrations
                     b.ToTable("Caixa", (string)null);
                 });
 
+            modelBuilder.Entity("Drogaria.Domain.Entities.Faltas.Falta", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("CascadeMode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CodigoDeBarras")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTimeOffset>("DataCriacao")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("Excluido")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<long?>("FornecedorId")
+                        .IsRequired()
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Laboratorio")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NomeCliente")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NomeProduto")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ObservacaoComprador")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Pago")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TelefoneCliente")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Tipo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UsuarioCriacaoId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<decimal?>("ValorPago")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<long>("VendedorId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FornecedorId");
+
+                    b.HasIndex("UsuarioCriacaoId");
+
+                    b.HasIndex("VendedorId");
+
+                    b.ToTable("Falta", (string)null);
+                });
+
+            modelBuilder.Entity("Drogaria.Domain.Entities.Fornecedores.Fornecedor", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("CascadeMode")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Excluido")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Fornecedor", (string)null);
+                });
+
             modelBuilder.Entity("Drogaria.Domain.Entities.Vendedores.Vendedor", b =>
                 {
                     b.Property<long>("Id")
@@ -298,12 +393,39 @@ namespace Drogaria.Infra.Data.Migrations
             modelBuilder.Entity("Drogaria.Domain.Entities.Caixas.Caixa", b =>
                 {
                     b.HasOne("Drogaria.Domain.Entities.ApplicationUsers.ApplicationUser", "Usuario")
-                        .WithMany("Caixa")
+                        .WithMany("Caixas")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Drogaria.Domain.Entities.Faltas.Falta", b =>
+                {
+                    b.HasOne("Drogaria.Domain.Entities.Fornecedores.Fornecedor", "Fornecedor")
+                        .WithMany("Faltas")
+                        .HasForeignKey("FornecedorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Drogaria.Domain.Entities.ApplicationUsers.ApplicationUser", "Usuario")
+                        .WithMany("Faltas")
+                        .HasForeignKey("UsuarioCriacaoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Drogaria.Domain.Entities.Vendedores.Vendedor", "Vendedor")
+                        .WithMany("Faltas")
+                        .HasForeignKey("VendedorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Fornecedor");
+
+                    b.Navigation("Usuario");
+
+                    b.Navigation("Vendedor");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -359,7 +481,19 @@ namespace Drogaria.Infra.Data.Migrations
 
             modelBuilder.Entity("Drogaria.Domain.Entities.ApplicationUsers.ApplicationUser", b =>
                 {
-                    b.Navigation("Caixa");
+                    b.Navigation("Caixas");
+
+                    b.Navigation("Faltas");
+                });
+
+            modelBuilder.Entity("Drogaria.Domain.Entities.Fornecedores.Fornecedor", b =>
+                {
+                    b.Navigation("Faltas");
+                });
+
+            modelBuilder.Entity("Drogaria.Domain.Entities.Vendedores.Vendedor", b =>
+                {
+                    b.Navigation("Faltas");
                 });
 #pragma warning restore 612, 618
         }

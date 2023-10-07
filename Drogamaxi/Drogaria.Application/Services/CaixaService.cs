@@ -9,13 +9,13 @@ namespace Drogaria.Application.Services
     public class CaixaService : ICaixaService
     {
         private readonly IMapper _mapper;
-        private readonly ICaixaRepository _CaixaRepository;
+        private readonly ICaixaRepository _caixaRepository;
         private readonly IUsuarioAutorizacaoService _usuarioAutorizacaoService;
-        public CaixaService(ICaixaRepository CaixaRepository,
+        public CaixaService(ICaixaRepository caixaRepository,
             IMapper mapper,
             IUsuarioAutorizacaoService usuarioAutorizacaoService)
         {
-            _CaixaRepository = CaixaRepository;
+            _caixaRepository = caixaRepository;
             _usuarioAutorizacaoService = usuarioAutorizacaoService;
             _mapper = mapper;
         }
@@ -27,7 +27,7 @@ namespace Drogaria.Application.Services
                 //if (!_usuarioAutorizacaoService.UsuarioLogadoAdministrador())
                 //    throw new Exception("Usuário não autorizado");
                 Caixa caixa = _mapper.Map<Caixa>(dto);
-                await _CaixaRepository.Add(caixa);
+                await _caixaRepository.Add(caixa);
                 return caixa.Id;
             }
             catch (Exception)
@@ -40,7 +40,7 @@ namespace Drogaria.Application.Services
         {
             try
             {
-                return _mapper.Map<List<CaixaDTO>>(_CaixaRepository.GetAll());
+                return _mapper.Map<List<CaixaDTO>>(_caixaRepository.GetAll());
             }
             catch (Exception)
             {
@@ -52,7 +52,7 @@ namespace Drogaria.Application.Services
         {
             try
             {
-                return _mapper.Map<CaixaDTO>(_CaixaRepository.GetById(id));
+                return _mapper.Map<CaixaDTO>(_caixaRepository.GetById(id));
             }
             catch (Exception)
             {
@@ -60,6 +60,22 @@ namespace Drogaria.Application.Services
                 throw;
             }
         }
+
+        public string CaixaPut(CaixaDTO dto)
+        {
+            try
+            {
+                _caixaRepository.Update(_mapper.Map<Caixa>(dto));
+                return "Sucesso ao alterar caixa.";
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+    
     }
 
 }

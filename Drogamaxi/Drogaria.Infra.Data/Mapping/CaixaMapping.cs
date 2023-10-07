@@ -19,7 +19,7 @@ namespace Drogaria.Infra.Data.Mapping
             builder.HasKey(p => p.Id);
 
             builder.HasOne(p=> p.Usuario)
-                .WithMany(e => e.Caixa)
+                .WithMany(e => e.Caixas)
                 .HasForeignKey(p => p.UsuarioId);
 
             builder.Ignore(e => e.ValidationResult);

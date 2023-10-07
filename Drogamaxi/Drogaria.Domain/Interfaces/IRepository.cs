@@ -11,6 +11,7 @@ namespace Drogaria.Domain.Interfaces
         TEntity? GetById(long Id);
         List<TEntity> GetAll();
         Task Update(TEntity Objeto);
+        IEnumerable<TEntity> Buscar(Expression<Func<TEntity, bool>> predicate);
 
     }
 }

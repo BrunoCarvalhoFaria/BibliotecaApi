@@ -17,12 +17,14 @@ namespace Drogaria.Infra.CrossCutting.IoC
 
             services.AddScoped<IVendedorRepository, VendedorRepository>();
             services.AddScoped<ICaixaRepository, CaixaRepository>();
-
+            services.AddScoped<IFornecedorRepository, FornecedorRepository>();
+            services.AddScoped<IFaltaRepository, FaltaRepository>();
 
 
             services.AddScoped<IUsuarioAutorizacaoService,  UsuarioAutorizacaoService>();
             services.AddScoped<IVendedorService, VendedorService>();
             services.AddScoped<ICaixaService, CaixaService>();
+            services.AddScoped<IFaltaService, FaltaService>();
             
         }
     }

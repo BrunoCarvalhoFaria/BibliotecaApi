@@ -64,7 +64,7 @@ namespace Drogaria.Api.Controllers
         {
             try
             {
-                return Ok();
+                return Ok(_caixaService.CaixaPut(caixa));
             }
             catch (Exception ex)
             {
