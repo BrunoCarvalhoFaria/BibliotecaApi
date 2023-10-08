@@ -10,6 +10,7 @@ namespace Drogaria.Infra.Data.Mapping
         public override void Map(EntityTypeBuilder<Vendedor> builder)
         {
             builder.ToTable("Vendedor");
+
             builder.HasKey(p => p.Id);
             builder.Ignore(e => e.ValidationResult);
             builder.Ignore(p => p.ClassLevelCascadeMode);

@@ -1,6 +1,7 @@
 ﻿using Drogaria.Domain.Core.Enums;
 using Drogaria.Domain.Entities.Caixas;
 using Drogaria.Domain.Entities.Faltas;
+using Drogaria.Domain.Entities.Vendedores;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations.Schema;
 

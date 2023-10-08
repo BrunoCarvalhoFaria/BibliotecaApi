@@ -9,6 +9,7 @@ namespace Drogaria.Application.DTO
 {
     public class FaltaDTO
     {
+        public long Id { get; set; }
         public DateTimeOffset DataCriacao { get; set; }
         public string UsuarioCriacaoId { get; set; } = "";
         public string CodigoDeBarras { get; set; } = "";
