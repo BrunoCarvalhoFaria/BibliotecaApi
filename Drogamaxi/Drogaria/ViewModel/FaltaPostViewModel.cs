@@ -9,6 +9,7 @@ namespace Drogaria.Api.ViewModel
         public string? Laboratorio { get; set; }
         public int Quantidade { get; set; }
         public string NomeCliente { get; set; } = "";
+        public long VendedorId { get; set; }
         public string TelefoneCliente { get; set; } = "";
         public StatusPagamento Pago { get; set; }
         public decimal? ValorPago { get; set; }
