@@ -1,0 +1,15 @@
+C:\Projetos\biblioteca\Biblioteca.Domain\bin\Debug\net7.0\Biblioteca.Domain.deps.json
+C:\Projetos\biblioteca\Biblioteca.Domain\bin\Debug\net7.0\Biblioteca.Domain.dll
+C:\Projetos\biblioteca\Biblioteca.Domain\bin\Debug\net7.0\Biblioteca.Domain.pdb
+C:\Projetos\biblioteca\Biblioteca.Domain\bin\Debug\net7.0\Biblioteca.Domain.Core.dll
+C:\Projetos\biblioteca\Biblioteca.Domain\bin\Debug\net7.0\Biblioteca.Domain.Core.pdb
+C:\Projetos\biblioteca\Biblioteca.Domain\obj\Debug\net7.0\Biblioteca.Domain.csproj.AssemblyReference.cache
+C:\Projetos\biblioteca\Biblioteca.Domain\obj\Debug\net7.0\Biblioteca.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\biblioteca\Biblioteca.Domain\obj\Debug\net7.0\Biblioteca.Domain.AssemblyInfoInputs.cache
+C:\Projetos\biblioteca\Biblioteca.Domain\obj\Debug\net7.0\Biblioteca.Domain.AssemblyInfo.cs
+C:\Projetos\biblioteca\Biblioteca.Domain\obj\Debug\net7.0\Biblioteca.Domain.csproj.CoreCompileInputs.cache
+C:\Projetos\biblioteca\Biblioteca.Domain\obj\Debug\net7.0\Biblioteca.Domain.csproj.CopyComplete
+C:\Projetos\biblioteca\Biblioteca.Domain\obj\Debug\net7.0\Biblioteca.Domain.dll
+C:\Projetos\biblioteca\Biblioteca.Domain\obj\Debug\net7.0\refint\Biblioteca.Domain.dll
+C:\Projetos\biblioteca\Biblioteca.Domain\obj\Debug\net7.0\Biblioteca.Domain.pdb
+C:\Projetos\biblioteca\Biblioteca.Domain\obj\Debug\net7.0\ref\Biblioteca.Domain.dll

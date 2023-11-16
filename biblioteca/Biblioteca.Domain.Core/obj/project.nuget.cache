@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "DrP842ICKxF6oBaJC4DAkGcKVkSfiAvqJKXm1MLCiR3Bq4bO4a0v/6xe3vZhwrZb8W+6N9TGSp4jBdG3jvQjsQ==",
+  "success": true,
+  "projectFilePath": "C:\\Projetos\\biblioteca\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bruno\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
+    "C:\\Users\\bruno\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\bruno\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\bruno\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

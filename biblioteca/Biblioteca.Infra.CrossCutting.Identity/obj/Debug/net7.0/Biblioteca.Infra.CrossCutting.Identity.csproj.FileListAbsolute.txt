@@ -1,0 +1,17 @@
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\bin\Debug\net7.0\Biblioteca.Infra.CrossCutting.Identity.deps.json
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\bin\Debug\net7.0\Biblioteca.Infra.CrossCutting.Identity.dll
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\bin\Debug\net7.0\Biblioteca.Infra.CrossCutting.Identity.pdb
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\bin\Debug\net7.0\Biblioteca.Domain.Core.dll
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\bin\Debug\net7.0\Biblioteca.Domain.dll
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\bin\Debug\net7.0\Biblioteca.Domain.pdb
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\bin\Debug\net7.0\Biblioteca.Domain.Core.pdb
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\obj\Debug\net7.0\Biblioteca.Infra.CrossCutting.Identity.csproj.AssemblyReference.cache
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\obj\Debug\net7.0\Biblioteca.Infra.CrossCutting.Identity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\obj\Debug\net7.0\Biblioteca.Infra.CrossCutting.Identity.AssemblyInfoInputs.cache
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\obj\Debug\net7.0\Biblioteca.Infra.CrossCutting.Identity.AssemblyInfo.cs
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\obj\Debug\net7.0\Biblioteca.Infra.CrossCutting.Identity.csproj.CoreCompileInputs.cache
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\obj\Debug\net7.0\Biblioteca.Infra.CrossCutting.Identity.csproj.CopyComplete
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\obj\Debug\net7.0\Biblioteca.Infra.CrossCutting.Identity.dll
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\obj\Debug\net7.0\refint\Biblioteca.Infra.CrossCutting.Identity.dll
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\obj\Debug\net7.0\Biblioteca.Infra.CrossCutting.Identity.pdb
+C:\Projetos\biblioteca\Biblioteca.Infra.CrossCutting.Identity\obj\Debug\net7.0\ref\Biblioteca.Infra.CrossCutting.Identity.dll
