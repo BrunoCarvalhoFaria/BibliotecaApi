@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Biblioteca.Domain.Entities.ApplicationUsers;
 using Biblioteca.Domain.DTO;
 using Microsoft.Extensions.Configuration;
+using Biblioteca.Domain.Entities;
+using Biblioteca.Infra.Data.Extensions;
+using Biblioteca.Infra.Data.Mapping;
 
 namespace Biblioteca.Infra.Data
 {
@@ -14,6 +17,7 @@ namespace Biblioteca.Infra.Data
         }
 
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
+        public DbSet<Livro> Livro { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -32,7 +36,8 @@ namespace Biblioteca.Infra.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ApplicationUser>().ToTable("AspNetUsers").HasKey(t => t.Id);
-            
+
+            modelBuilder.AddConfiguration(new LivroMapping());
             
             base.OnModelCreating(modelBuilder);
         }

@@ -20,7 +20,6 @@ namespace Biblioteca.Domain.Core.Models
             Excluido = true;
         }
 
-        public abstract bool EhValido();
         public ValidationResult ValidationResult { get; protected set; }
 
         public override bool Equals(object obj)
