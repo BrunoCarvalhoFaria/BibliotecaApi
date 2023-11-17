@@ -39,6 +39,7 @@
     <ProjectReference Include="..\Biblioteca.Domain.Core\Biblioteca.Domain.Core.csproj" />
     <ProjectReference Include="..\Biblioteca.Domain\Biblioteca.Domain.csproj" />
     <ProjectReference Include="..\Biblioteca.Infra.CrossCutting.IoC\Biblioteca.Infra.CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\Biblioteca.TesteUnitario\Biblioteca.TesteUnitario.csproj" />
   </ItemGroup>
 
 </Project>

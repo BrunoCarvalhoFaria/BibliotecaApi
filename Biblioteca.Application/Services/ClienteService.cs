@@ -3,7 +3,6 @@ using Biblioteca.Application.DTO;
 using Biblioteca.Application.Interfaces;
 using Biblioteca.Domain.Entities;
 using Biblioteca.Domain.Interfaces;
-using Biblioteca.Infra.Data.Repository;
 
 namespace Biblioteca.Application.Services
 {

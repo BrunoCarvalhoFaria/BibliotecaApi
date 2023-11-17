@@ -24,6 +24,7 @@ namespace Biblioteca.Infra.CrossCutting.IoC
             services.AddScoped<IClienteService, ClienteService>();
             services.AddScoped<IUtilsService, UtilsService>();
             services.AddScoped<ILivroGeneroService, LivroGeneroService>();
+            services.AddScoped<IEstoqueService, EstoqueService>();
         }
     }
 }
