@@ -18,6 +18,7 @@ namespace Biblioteca.Infra.Data
 
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<Livro> Livro { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -38,6 +39,7 @@ namespace Biblioteca.Infra.Data
             modelBuilder.Entity<ApplicationUser>().ToTable("AspNetUsers").HasKey(t => t.Id);
 
             modelBuilder.AddConfiguration(new LivroMapping());
+            modelBuilder.AddConfiguration(new ClienteMapping());
             
             base.OnModelCreating(modelBuilder);
         }

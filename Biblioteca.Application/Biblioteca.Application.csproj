@@ -31,8 +31,4 @@
     <ProjectReference Include="..\Biblioteca.Infra.Data\Biblioteca.Infra.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTO\" />
-  </ItemGroup>
-
 </Project>

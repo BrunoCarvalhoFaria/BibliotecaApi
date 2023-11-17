@@ -9,10 +9,10 @@ namespace Biblioteca.Domain.Entities
 {
     public class Livro : Entity<Livro>
     {
-        public string Titulo { get; set; }
-        public string Autor { get; set; }
-        public string Ano { get; set; }
-        public string Genero { get; set; }
-        public string Editora { get; set; }
+        public required string Titulo { get; set; }
+        public required string Autor { get; set; }
+        public required string Ano { get; set; }
+        public required string Genero { get; set; }
+        public required string Editora { get; set; }
     }
 }

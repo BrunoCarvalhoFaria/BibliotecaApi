@@ -88,6 +88,34 @@ namespace Biblioteca.Infra.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Biblioteca.Domain.Entities.Cliente", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("CascadeMode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("Excluido")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTimeOffset?>("ExclusaoData")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cliente", (string)null);
+                });
+
             modelBuilder.Entity("Biblioteca.Domain.Entities.Livro", b =>
                 {
                     b.Property<long>("Id")
@@ -111,6 +139,9 @@ namespace Biblioteca.Infra.Data.Migrations
 
                     b.Property<bool>("Excluido")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTimeOffset?>("ExclusaoData")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Genero")
                         .IsRequired()

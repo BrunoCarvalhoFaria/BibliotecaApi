@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="DTO\LivroDTO.cs" />
     <Compile Remove="Interfaces\ICaixaRepository.cs" />
     <Compile Remove="Interfaces\IFaltaRepository.cs" />
     <Compile Remove="Interfaces\IFornecedorRepository.cs" />

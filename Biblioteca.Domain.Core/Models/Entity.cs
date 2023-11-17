@@ -14,10 +14,12 @@ namespace Biblioteca.Domain.Core.Models
 
         public long Id { get; protected set; }
         public virtual bool Excluido { get; set; }
+        public virtual DateTimeOffset? ExclusaoData { get; set; }
 
         public void Excluir()
         {
             Excluido = true;
+            ExclusaoData = DateTimeOffset.Now;
         }
 
         public ValidationResult ValidationResult { get; protected set; }
