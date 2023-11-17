@@ -17,6 +17,7 @@ namespace Biblioteca.Infra.CrossCutting.IoC
             services.AddScoped<ILivroRepository, LivroRepository>();
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<ILivroGeneroRepository, LivroGeneroRepository>();
+            services.AddScoped<IEstoqueRepository, EstoqueRepository>();
 
             services.AddScoped<IUsuarioAutorizacaoService,  UsuarioAutorizacaoService>();
             services.AddScoped<ILivroService, LivroService>();

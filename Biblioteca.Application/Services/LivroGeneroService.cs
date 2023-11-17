@@ -69,10 +69,9 @@ namespace Biblioteca.Application.Services
             {
                 LivroGenero? livroGenero = _livroGeneroRepository.GetById(id);
                 if (livroGenero == null)
-                    throw new Exception("LivroGenero não encontrado");
-                livroGenero.Excluir();
-                _livroGeneroRepository.Update(livroGenero);
-                return "LivroGenero excluído com sucesso";
+                    throw new Exception("Gênero não encontrado");
+                _livroGeneroRepository.Delete(livroGenero);
+                return "Gênero excluído com sucesso";
             }
             catch (Exception)
             {
