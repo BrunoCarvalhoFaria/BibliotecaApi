@@ -80,7 +80,7 @@ namespace Biblioteca.Api.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        [Route("criarUsuario")]
+        [Route("criarUsuarioCliente")]
         public async Task<IActionResult> CriarUsuarioCliente([FromBody] NovoUsuarioViewModel novoUsuario)
         {
             if (string.IsNullOrWhiteSpace(novoUsuario.Email) || string.IsNullOrWhiteSpace(novoUsuario.Nome))

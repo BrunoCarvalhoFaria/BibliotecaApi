@@ -22,7 +22,6 @@ namespace Biblioteca.Infra.Data.Migrations
                     Ano = table.Column<string>(type: "longtext", nullable: false),
                     Genero = table.Column<string>(type: "longtext", nullable: false),
                     Editora = table.Column<string>(type: "longtext", nullable: false),
-                    CascadeMode = table.Column<int>(type: "int", nullable: false),
                     Excluido = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>

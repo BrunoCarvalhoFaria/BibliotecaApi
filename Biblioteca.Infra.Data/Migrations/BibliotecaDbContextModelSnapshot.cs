@@ -97,9 +97,6 @@ namespace Biblioteca.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    b.Property<int>("CascadeMode")
-                        .HasColumnType("int");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("varchar(255)");
@@ -141,9 +138,6 @@ namespace Biblioteca.Infra.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("CascadeMode")
-                        .HasColumnType("int");
-
                     b.Property<string>("Editora")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -154,9 +148,8 @@ namespace Biblioteca.Infra.Data.Migrations
                     b.Property<DateTimeOffset?>("ExclusaoData")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Genero")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<long>("LivroGeneroId")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Titulo")
                         .IsRequired()
@@ -164,7 +157,30 @@ namespace Biblioteca.Infra.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("LivroGeneroId");
+
                     b.ToTable("Livro", (string)null);
+                });
+
+            modelBuilder.Entity("Biblioteca.Domain.Entities.LivroGenero", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("Excluido")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTimeOffset?>("ExclusaoData")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LivroGenero", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -304,6 +320,17 @@ namespace Biblioteca.Infra.Data.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("Biblioteca.Domain.Entities.Livro", b =>
+                {
+                    b.HasOne("Biblioteca.Domain.Entities.LivroGenero", "LivroGenero")
+                        .WithMany("Livros")
+                        .HasForeignKey("LivroGeneroId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("LivroGenero");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -358,6 +385,11 @@ namespace Biblioteca.Infra.Data.Migrations
             modelBuilder.Entity("Biblioteca.Domain.Entities.ApplicationUsers.ApplicationUser", b =>
                 {
                     b.Navigation("Clientes");
+                });
+
+            modelBuilder.Entity("Biblioteca.Domain.Entities.LivroGenero", b =>
+                {
+                    b.Navigation("Livros");
                 });
 #pragma warning restore 612, 618
         }

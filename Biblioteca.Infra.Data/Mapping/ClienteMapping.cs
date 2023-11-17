@@ -22,6 +22,7 @@ namespace Biblioteca.Infra.Data.Mapping
                 .HasForeignKey(p => p.UsuarioId);
 
             builder.Ignore(e => e.ValidationResult);
+            builder.Ignore(e => e.CascadeMode);
             builder.Ignore(p => p.ClassLevelCascadeMode);
             builder.Ignore(p => p.RuleLevelCascadeMode);
         }

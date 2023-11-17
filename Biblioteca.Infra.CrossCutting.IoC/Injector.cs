@@ -16,10 +16,13 @@ namespace Biblioteca.Infra.CrossCutting.IoC
 
             services.AddScoped<ILivroRepository, LivroRepository>();
             services.AddScoped<IClienteRepository, ClienteRepository>();
+            services.AddScoped<ILivroGeneroRepository, LivroGeneroRepository>();
 
             services.AddScoped<IUsuarioAutorizacaoService,  UsuarioAutorizacaoService>();
             services.AddScoped<ILivroService, LivroService>();
             services.AddScoped<IClienteService, ClienteService>();
+            services.AddScoped<IUtilsService, UtilsService>();
+            services.AddScoped<ILivroGeneroService, LivroGeneroService>();
         }
     }
 }

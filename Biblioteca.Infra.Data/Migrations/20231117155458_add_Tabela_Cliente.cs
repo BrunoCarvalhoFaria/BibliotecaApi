@@ -26,7 +26,6 @@ namespace Biblioteca.Infra.Data.Migrations
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(type: "longtext", nullable: false),
                     Email = table.Column<string>(type: "longtext", nullable: false),
-                    CascadeMode = table.Column<int>(type: "int", nullable: false),
                     Excluido = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     ExclusaoData = table.Column<DateTimeOffset>(type: "datetime(6)", nullable: true)
                 },

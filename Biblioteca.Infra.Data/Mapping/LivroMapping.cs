@@ -12,8 +12,13 @@ namespace Biblioteca.Infra.Data.Mapping
             builder.ToTable("Livro");
             builder.HasKey(x => x.Id);
 
+            builder.HasOne(p => p.LivroGenero)
+                .WithMany(e => e.Livros)
+                .HasForeignKey(p => p.LivroGeneroId);
+
             builder.Ignore(e => e.ValidationResult);
             builder.Ignore(p => p.ClassLevelCascadeMode);
+            builder.Ignore(e => e.CascadeMode);
             builder.Ignore(p => p.RuleLevelCascadeMode);
         }
     }

@@ -11,19 +11,24 @@ namespace Biblioteca.Application.Services
         private readonly IMapper _mapper;
         private readonly ILivroRepository _livroRepository;
         private readonly IUsuarioAutorizacaoService _usuarioAutorizacaoService;
+        private readonly IUtilsService _utilsService;
         public LivroService(ILivroRepository livroRepository,
             IMapper mapper,
-            IUsuarioAutorizacaoService usuarioAutorizacaoService)
+            IUsuarioAutorizacaoService usuarioAutorizacaoService,
+            IUtilsService utilsService)
         {
             _livroRepository = livroRepository;
             _usuarioAutorizacaoService = usuarioAutorizacaoService;
             _mapper = mapper;
+            _utilsService = utilsService;
         }
 
         public async Task<long> LivroPost(LivroDTO dto)
         {
             try
             {
+                if (!_utilsService.TodosPropriedadesPreenchidas(dto))
+                    throw new Exception("Todos os campos devem ser preenchidos");
                 Livro livro = _mapper.Map<Livro>(dto);
                 await _livroRepository.Add(livro);
                 return livro.Id;
