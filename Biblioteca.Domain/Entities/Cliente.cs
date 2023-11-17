@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Domain.Core.Models;
+using Biblioteca.Domain.Entities.ApplicationUsers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,7 @@ namespace Biblioteca.Domain.Entities
     {
         public required string Nome { get; set; }
         public required string Email { get; set; }
+        public string? UsuarioId { get; set; }
+        public virtual ApplicationUser? Usuario { get; set; }
     }
 }

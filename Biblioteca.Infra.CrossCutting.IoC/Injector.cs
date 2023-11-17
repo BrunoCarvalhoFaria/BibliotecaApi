@@ -19,6 +19,7 @@ namespace Biblioteca.Infra.CrossCutting.IoC
 
             services.AddScoped<IUsuarioAutorizacaoService,  UsuarioAutorizacaoService>();
             services.AddScoped<ILivroService, LivroService>();
+            services.AddScoped<IClienteService, ClienteService>();
         }
     }
 }

@@ -1,5 +1,8 @@
 ﻿using Biblioteca.Api.Token;
 using Biblioteca.Api.ViewModel;
+using Biblioteca.Application.DTO;
+using Biblioteca.Application.Interfaces;
+using Biblioteca.Domain.Core.Enums;
 using Biblioteca.Domain.Entities.ApplicationUsers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -18,10 +21,13 @@ namespace Biblioteca.Api.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IClienteService _clienteService;
         public UsersController(UserManager<ApplicationUser> userManager, 
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager,
+            IClienteService clienteService)
         {
             _userManager = userManager;
+            _clienteService = clienteService;
             _signInManager = signInManager;
         }
         [HttpPost]
@@ -75,7 +81,7 @@ namespace Biblioteca.Api.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("criarUsuario")]
-        public async Task<IActionResult> CriarUsuario([FromBody] NovoUsuarioViewModel novoUsuario)
+        public async Task<IActionResult> CriarUsuarioCliente([FromBody] NovoUsuarioViewModel novoUsuario)
         {
             if (string.IsNullOrWhiteSpace(novoUsuario.Email) || string.IsNullOrWhiteSpace(novoUsuario.Nome))
                 return BadRequest("Preencha todos os campos.");
@@ -83,18 +89,22 @@ namespace Biblioteca.Api.Controllers
             var usuario = new ApplicationUser { 
                 UserName = novoUsuario.Email,
                 Nome = novoUsuario.Nome,
-                Email = novoUsuario.Email,               
+                Email = novoUsuario.Email,    
+                TipoUsuario = TipoUsuarioEnum.Cliente
             };
 
             var resultado = await _userManager.CreateAsync(usuario, novoUsuario.Senha);
             if(resultado.Errors.Any())
                 return Ok(resultado.Errors);
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(usuario);
-            //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
             var resultado2 = await _userManager.ConfirmEmailAsync(usuario, code);
 
             if (resultado2.Succeeded)
+            {
+                ClienteDTO cliente = new ClienteDTO(usuario.Nome, usuario.Email, usuario.Id);
+                await _clienteService.ClientePost(cliente);
                 return Ok("Usuário criado com sucesso!");
+            }
             else
                 return BadRequest("Erro ao criar usuário");
         }

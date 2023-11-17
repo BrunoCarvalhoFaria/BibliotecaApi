@@ -3,6 +3,7 @@ using System;
 using Biblioteca.Infra.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Biblioteca.Infra.Data.Migrations
 {
     [DbContext(typeof(BibliotecaDbContext))]
-    partial class BibliotecaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231117164551_Add_FK_Tabela_Cliente_AspNetUsers")]
+    partial class Add_FK_Tabela_Cliente_AspNetUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,6 +118,7 @@ namespace Biblioteca.Infra.Data.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("UsuarioId")
+                        .IsRequired()
                         .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
@@ -299,7 +303,9 @@ namespace Biblioteca.Infra.Data.Migrations
                 {
                     b.HasOne("Biblioteca.Domain.Entities.ApplicationUsers.ApplicationUser", "Usuario")
                         .WithMany("Clientes")
-                        .HasForeignKey("UsuarioId");
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Usuario");
                 });

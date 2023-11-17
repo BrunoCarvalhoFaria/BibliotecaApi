@@ -7,7 +7,7 @@ namespace Biblioteca.Api.AutoMapper
     public class ApplicationMappingProfile : Profile
     {
         public ApplicationMappingProfile() {
-            CreateMap<ClienteDTO, ClienteDTO>().ReverseMap();
+            CreateMap<ClienteDTO, Cliente>().ReverseMap();
             CreateMap<LivroDTO, Livro>().ReverseMap();
         }
     }
