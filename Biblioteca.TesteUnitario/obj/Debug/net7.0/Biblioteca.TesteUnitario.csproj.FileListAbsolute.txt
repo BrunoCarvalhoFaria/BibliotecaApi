@@ -1,4 +1,3 @@
-C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\CoverletSourceRootsMapping
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\testhost.dll
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\testhost.exe
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
@@ -160,3 +159,6 @@ C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\refint\Bibli
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.pdb
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.genruntimeconfig.cache
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\ref\Biblioteca.TesteUnitario.dll
+C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\CoverletSourceRootsMapping_Biblioteca.TesteUnitario
+C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Castle.Core.dll
+C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Moq.dll

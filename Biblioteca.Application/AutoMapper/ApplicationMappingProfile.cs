@@ -2,7 +2,7 @@
 using Biblioteca.Application.DTO;
 using Biblioteca.Domain.Entities;
 
-namespace Biblioteca.Api.AutoMapper
+namespace Biblioteca.Application.AutoMapper
 {
     public class ApplicationMappingProfile : Profile
     {

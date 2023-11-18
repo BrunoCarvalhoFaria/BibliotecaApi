@@ -11,6 +11,7 @@ using Biblioteca.Api.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Http.Features;
+using Biblioteca.Application.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -8,11 +8,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
     {
         private readonly IUtilsService _utilsService;
         public UtilsServiceTest() {
-            var service = new ServiceCollection();
-            service.AddTransient<IUtilsService, UtilsService>();
-
-            var provider = service.BuildServiceProvider();
-            _utilsService = provider.GetService<IUtilsService>();
+            _utilsService = new UtilsService();
 
         }
         public class Objeto
