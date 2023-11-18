@@ -8,5 +8,7 @@ namespace Biblioteca.Application.Interfaces
 {
     public interface IEmprestimoService
     {
+        Task<long> RealizarEmprestimo(long clienteId, long livroId);
+        Task<long> RealizarDevolucao(long clienteId, long livroId, long emprestimoId);
     }
 }

@@ -9,9 +9,9 @@ namespace Biblioteca.Domain.Entities
 {
     public class Emprestimo : Entity<Emprestimo>
     {
-        public long LivroId { get; set; }
-        public long ClienteId { get; set; }
-        public DateTimeOffset DataEmprestimo { get; set; }
+        public required long LivroId { get; set; }
+        public required long ClienteId { get; set; }
+        public required DateTimeOffset DataEmprestimo { get; set; }
         public DateTimeOffset? DataDevolucao { get; set; }
         public virtual Livro Livro { get; set; }
         public virtual Cliente Cliente { get; set; }
