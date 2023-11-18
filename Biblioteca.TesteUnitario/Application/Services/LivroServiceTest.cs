@@ -218,5 +218,99 @@ namespace Biblioteca.TesteUnitario.Application.Services
             _repositoryMock.Verify(p => p.Update(livro), Times.Once);
             Assert.Equal("Sucesso ao alterar o livro.", resultado);
         }
+        [Fact(DisplayName = "LivroObterTodos01 - Deve retornar a página 1 do resultado paginado")]
+        public void LivroObterTodos01()
+        {
+            int pagina = 1;
+            int qtdRegistros = 6;
+
+            List<Livro> livros = new List<Livro>();
+            List<LivroDTO> livroDTOs = new List<LivroDTO>();
+
+            for (int i = 0; i < 10; i++)
+            {
+                livros.Add(new Livro
+                {
+                    Titulo = "Título Teste",
+                    Autor = "Autor Teste",
+                    Ano = "2022",
+                    Editora = "Editora Teste",
+                    LivroGeneroId = i,
+                });
+            }
+            int contador = qtdRegistros > livros.Count ? livros.Count : qtdRegistros;
+            for (int i = 0; i < contador; i++)
+            {
+                livroDTOs.Add(new LivroDTO
+                {
+                    Titulo = "Título Teste",
+                    Autor = "Autor Teste",
+                    Ano = "2022",
+                    Editora = "Editora Teste",
+                    LivroGeneroId = i,
+                });
+            }
+
+            _repositoryMock.Setup(p => p.GetAll()).Returns(livros);
+            LivroObterTodosDTO resultadoEsperado = new LivroObterTodosDTO
+            {
+                Livros = livroDTOs,
+                TotalRegistros = livros.Count
+            };
+
+            var resultado = _livroService.ObterTodos(pagina, qtdRegistros);
+            Assert.Equal(resultadoEsperado.TotalRegistros, resultado.TotalRegistros);
+            for (int i = 0; i < resultadoEsperado.Livros.Count; i++)
+            {
+                Assert.Equal(resultadoEsperado.Livros[i].LivroGeneroId, resultado.Livros[i].LivroGeneroId);
+            }
+        }
+
+        [Fact(DisplayName = "LivroObterTodos02 - Deve retornar a página 2 do resultado paginado")]
+        public void LivroObterTodos02()
+        {
+            int pagina = 2;
+            int qtdRegistros = 6;
+
+            List<Livro> livros = new List<Livro>();
+            List<LivroDTO> livroDTOs = new List<LivroDTO>();
+
+            for (int i = 0; i < 10; i++)
+            {
+                livros.Add(new Livro
+                {
+                    Titulo = "Título Teste",
+                    Autor = "Autor Teste",
+                    Ano = "2022",
+                    Editora = "Editora Teste",
+                    LivroGeneroId = i,
+                });
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                livroDTOs.Add(new LivroDTO
+                {
+                    Titulo = "Título Teste",
+                    Autor = "Autor Teste",
+                    Ano = "2022",
+                    Editora = "Editora Teste",
+                    LivroGeneroId = i + ((pagina - 1) * qtdRegistros) ,
+                });
+            }
+
+            _repositoryMock.Setup(p => p.GetAll()).Returns(livros);
+            LivroObterTodosDTO resultadoEsperado = new LivroObterTodosDTO
+            {
+                Livros = livroDTOs,
+                TotalRegistros = livros.Count
+            };
+
+            var resultado = _livroService.ObterTodos(pagina, qtdRegistros);
+            Assert.Equal(resultadoEsperado.TotalRegistros, resultado.TotalRegistros);
+            for (int i = 0; i < resultadoEsperado.Livros.Count; i++)
+            {
+                Assert.Equal(resultadoEsperado.Livros[i].LivroGeneroId, resultado.Livros[i].LivroGeneroId);
+            }
+        }
     }
 }

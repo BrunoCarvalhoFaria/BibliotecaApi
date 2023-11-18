@@ -29,7 +29,7 @@ namespace Biblioteca.Api.Controllers
         }
 
         [HttpPost]
-        [Route("adicionarLivro")]
+        [Route("")]
         public async Task<IActionResult> AdicionarLivro([FromBody]LivroViewModel livro)
         {
             try
@@ -39,6 +39,21 @@ namespace Biblioteca.Api.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);                
+            }
+        }
+
+        [HttpGet]
+        [Route("")]
+        public IActionResult ObterTodosPaginado(int pagina, int qtdRegistros)
+        {
+            try
+            {
+                return Ok(_livroService.ObterTodos(pagina, qtdRegistros));
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
             }
         }
     }

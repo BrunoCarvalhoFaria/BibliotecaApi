@@ -8,5 +8,6 @@ namespace Biblioteca.Application.Interfaces
         LivroDTO? LivroGetAById(long id);
         string LivroDelete(long id);
         Task<string> LivroPut(LivroDTO dto);
+        LivroObterTodosDTO ObterTodos(int pagina, int qtdRegistros);
     }
 }

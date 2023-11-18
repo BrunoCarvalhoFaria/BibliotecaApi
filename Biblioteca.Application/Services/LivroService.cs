@@ -90,5 +90,14 @@ namespace Biblioteca.Application.Services
             }
         }
 
+        public LivroObterTodosDTO ObterTodos(int pagina = 1 , int qtdRegistros = 99999)
+        {
+            LivroObterTodosDTO resultado = new();
+            var livros = _mapper.Map<List<LivroDTO>>(_livroRepository.GetAll().ToList());
+            resultado.TotalRegistros = livros.Count;
+            resultado.Livros = livros.Skip((pagina - 1 ) * qtdRegistros).Take(qtdRegistros).ToList();
+            return resultado;
+        }
+
     }
 }
