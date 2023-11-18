@@ -21,6 +21,7 @@ namespace Biblioteca.Infra.Data
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<LivroGenero> LivroGenero { get; set; }
         public DbSet<Estoque> Estoque { get; set; }
+        public DbSet<Emprestimo> Emprestimo { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -44,6 +45,7 @@ namespace Biblioteca.Infra.Data
             modelBuilder.AddConfiguration(new ClienteMapping());
             modelBuilder.AddConfiguration(new LivroGeneroMapping());
             modelBuilder.AddConfiguration(new EstoqueMapping());
+            modelBuilder.AddConfiguration(new EmprestimoMapping());
 
             base.OnModelCreating(modelBuilder);
         }

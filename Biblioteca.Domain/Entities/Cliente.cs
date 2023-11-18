@@ -14,5 +14,7 @@ namespace Biblioteca.Domain.Entities
         public required string Email { get; set; }
         public string? UsuarioId { get; set; }
         public virtual ApplicationUser? Usuario { get; set; }
+
+        public ICollection<Emprestimo> Emprestimos { get; set; }
     }
 }

@@ -12,5 +12,6 @@ namespace Biblioteca.Domain.Entities
 
         public virtual LivroGenero LivroGenero { get; set; }
         public ICollection<Estoque> Estoques { get; set; }
+        public ICollection<Emprestimo> Emprestimos { get; set; }
     }
 }
