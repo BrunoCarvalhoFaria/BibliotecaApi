@@ -11,24 +11,29 @@ namespace Biblioteca.Application.Services
         private readonly IMapper _mapper;
         private readonly ILivroRepository _livroRepository;
         private readonly IUsuarioAutorizacaoService _usuarioAutorizacaoService;
+        private readonly ILivroGeneroService _livroGeneroService;
         private readonly IUtilsService _utilsService;
         public LivroService(ILivroRepository livroRepository,
             IMapper mapper,
             IUsuarioAutorizacaoService usuarioAutorizacaoService,
+            ILivroGeneroService livroGeneroService,
             IUtilsService utilsService)
         {
             _livroRepository = livroRepository;
             _usuarioAutorizacaoService = usuarioAutorizacaoService;
+            _livroGeneroService = livroGeneroService;
             _mapper = mapper;
             _utilsService = utilsService;
         }
 
-        public async Task<long> LivroPost(LivroDTO dto)
+        public async Task<long> LivroPost(LivroPostDTO dto)
         {
             try
             {
                 if (!_utilsService.TodosPropriedadesPreenchidas(dto))
                     throw new Exception("Todos os campos devem ser preenchidos");
+                if(_livroGeneroService.LivroGeneroGetAById(dto.LivroGeneroId) == null)
+                    throw new Exception("Gênero do livro não encontrado.");
                 Livro livro = _mapper.Map<Livro>(dto);
                 await _livroRepository.Add(livro);
                 return livro.Id;
@@ -69,13 +74,14 @@ namespace Biblioteca.Application.Services
             }
         }
 
-        public string LivroPut(LivroDTO dto)
+        public async Task<string>LivroPut(LivroDTO dto)
         {
             try
             {
-                _livroRepository.Update(_mapper.Map<Livro>(dto));
+                if (_livroRepository.GetById(dto.Id) == null)
+                    throw new Exception("Livro não encontrado");
+                await _livroRepository.Update(_mapper.Map<Livro>(dto));
                 return "Sucesso ao alterar o livro.";
-
             }
             catch (Exception)
             {

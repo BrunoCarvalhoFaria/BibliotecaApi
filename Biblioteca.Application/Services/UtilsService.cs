@@ -16,7 +16,7 @@ namespace Biblioteca.Application.Services
             {
                 var value = propriedade.GetValue(obj);
 
-                return value != null && !string.IsNullOrEmpty(value.ToString());
+                return value != null && !string.IsNullOrEmpty(value.ToString()) && value.ToString() != "0";
             });
         }
     }

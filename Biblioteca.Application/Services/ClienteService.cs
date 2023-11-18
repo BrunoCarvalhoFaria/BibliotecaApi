@@ -3,6 +3,7 @@ using Biblioteca.Application.DTO;
 using Biblioteca.Application.Interfaces;
 using Biblioteca.Domain.Entities;
 using Biblioteca.Domain.Interfaces;
+using Biblioteca.Infra.Data.Repository;
 
 namespace Biblioteca.Application.Services
 {
@@ -13,7 +14,8 @@ namespace Biblioteca.Application.Services
         private readonly IUsuarioAutorizacaoService _usuarioAutorizacaoService;
         public ClienteService(IClienteRepository clienteRepository,
             IMapper mapper,
-            IUsuarioAutorizacaoService usuarioAutorizacaoService)
+            IUsuarioAutorizacaoService usuarioAutorizacaoService
+            )
         {
             _clienteRepository = clienteRepository;
             _usuarioAutorizacaoService = usuarioAutorizacaoService;
@@ -24,6 +26,8 @@ namespace Biblioteca.Application.Services
         {
             try
             {
+                if (string.IsNullOrEmpty(dto.Email) || string.IsNullOrEmpty(dto.Nome))
+                    throw new Exception("Deve ser preenchido o email e nome do cliente.");
                 Cliente cliente = _mapper.Map<Cliente>(dto);
                 await _clienteRepository.Add(cliente);
                 return cliente.Id;
@@ -68,6 +72,8 @@ namespace Biblioteca.Application.Services
         {
             try
             {
+                if (dto.Id == null || _clienteRepository.GetById((long)dto.Id) == null)
+                    throw new Exception("Cliente não encontrado");
                 _clienteRepository.Update(_mapper.Map<Cliente>(dto));
                 return "Sucesso ao alterar o cliente.";
             }

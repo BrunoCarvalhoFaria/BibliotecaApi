@@ -17,13 +17,12 @@ namespace Biblioteca.TesteUnitario.Application.Services
         private readonly Mock<IEstoqueRepository> _repositoryMock;
         public EstoqueServiceTest()
         {
-            //var _estoqueRepository = new EstoqueRepositoryFake();
             _usuarioAutorizacaoServiceMock = new Mock<IUsuarioAutorizacaoService>();
 
             _repositoryMock = new Mock<IEstoqueRepository>();
             var configuration = new MapperConfiguration(options =>
             {
-                options.AddProfile(new ApplicationMappingProfile());
+                options.AddProfile<ApplicationMappingProfile>();
                 options.AllowNullCollections = true;
             });
             IMapper mapper = new Mapper(configuration);
@@ -31,7 +30,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
             _estoqueService = new EstoqueService(_repositoryMock.Object, mapper, _usuarioAutorizacaoServiceMock.Object);
         }
        
-        [Fact(DisplayName = "CalcularEstoque: 01 - Deve alterar o estoque e verificar todas condições")]
+        [Fact(DisplayName = "CalcularEstoque01 - Deve alterar o estoque e verificar todas condições")]
         public void CalcularEstoque()
         {
             Estoque estoque = new Estoque();
@@ -46,13 +45,13 @@ namespace Biblioteca.TesteUnitario.Application.Services
             Assert.Equal("Estoque negativo não permitido", exception.Message);
         }
 
-        [Fact(DisplayName = "AlterarEstoque: 01 - Teste caso o estoque não seja encontrado")]
+        [Fact(DisplayName = "AlterarEstoque01 - Teste caso o estoque não seja encontrado")]
         public void AlterarEstoque01() {
             var exception = Assert.Throws<Exception>(() => _estoqueService.AlterarEstoque(0, 1));
             Assert.Equal("Estoque referente ao livro não encontrado.", exception.Message);
         }
 
-        [Fact(DisplayName = "AlterarEstoque: 02 - Deve utilizar EstoqueRepository.Update uma vez")]
+        [Fact(DisplayName = "AlterarEstoque02 - Deve utilizar EstoqueRepository.Update uma vez")]
         public void AlterarEstoque02()
         {
             long livroId = 10;

@@ -4,9 +4,9 @@ namespace Biblioteca.Application.Interfaces
 {
     public interface ILivroService
     {
-        Task<long> LivroPost(LivroDTO dto);
+        Task<long> LivroPost(LivroPostDTO dto);
         LivroDTO? LivroGetAById(long id);
         string LivroDelete(long id);
-        string LivroPut(LivroDTO dto);
+        Task<string> LivroPut(LivroDTO dto);
     }
 }

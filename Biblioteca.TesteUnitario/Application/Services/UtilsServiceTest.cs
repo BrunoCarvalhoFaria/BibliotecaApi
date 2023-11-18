@@ -31,6 +31,8 @@ namespace Biblioteca.TesteUnitario.Application.Services
 
             objeto = new Objeto("teste", null);
             Assert.False(_utilsService.TodosPropriedadesPreenchidas(objeto));
+            objeto = new Objeto("teste", 0);
+            Assert.False(_utilsService.TodosPropriedadesPreenchidas(objeto));
         }
     }
 }

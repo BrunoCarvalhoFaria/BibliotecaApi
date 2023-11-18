@@ -1,0 +1,222 @@
+﻿using AutoMapper;
+using Biblioteca.Application.AutoMapper;
+using Biblioteca.Application.DTO;
+using Biblioteca.Application.Interfaces;
+using Biblioteca.Application.Services;
+using Biblioteca.Domain.Entities;
+using Biblioteca.Domain.Interfaces;
+using Biblioteca.Infra.Data.Repository;
+using Moq;
+
+namespace Biblioteca.TesteUnitario.Application.Services
+{
+
+    public class LivroServiceTest
+    {
+        private readonly ILivroService _livroService;
+        private readonly Mock<IUsuarioAutorizacaoService> _usuarioAutorizacaoServiceMock;
+        private readonly Mock<ILivroRepository> _repositoryMock;
+        private readonly Mock<ILivroGeneroService> _livroGeneroServiceMock;
+        private readonly IMapper _mapper;
+        public LivroServiceTest()
+        {
+            _usuarioAutorizacaoServiceMock = new Mock<IUsuarioAutorizacaoService>();
+            _livroGeneroServiceMock = new Mock<ILivroGeneroService>();
+
+            _repositoryMock = new Mock<ILivroRepository>();
+            var configuration = new MapperConfiguration(options =>
+            {
+                options.AddProfile<ApplicationMappingProfile>();
+                options.AllowNullCollections = true;
+            });
+            IMapper _mapper = new Mapper(configuration);
+            IUtilsService utilsService = new UtilsService();
+            _livroService = new LivroService(_repositoryMock.Object, _mapper, _usuarioAutorizacaoServiceMock.Object, _livroGeneroServiceMock.Object, utilsService);
+        }
+
+        [Fact(DisplayName = "LivroPost01 - Deve retornar um erro caso alguma das propriedades não for preenchida")]
+        public async Task LivroPost01()
+        {
+            LivroPostDTO livroPostDTO = new LivroPostDTO();
+            livroPostDTO.Titulo = "";
+            livroPostDTO.Autor = "";
+            livroPostDTO.Ano = "";
+            livroPostDTO.Editora = "";
+            livroPostDTO.LivroGeneroId = 1;
+            var exception = await Assert.ThrowsAsync<Exception>(() => _livroService.LivroPost(livroPostDTO));
+
+            Assert.Equal("Todos os campos devem ser preenchidos", exception.Message);
+
+            livroPostDTO = new LivroPostDTO();
+            livroPostDTO.Titulo = "Título Teste";
+            livroPostDTO.Autor = "Autor Teste";
+            livroPostDTO.Ano = "2022";
+            livroPostDTO.Editora = "Editora Teste";
+            livroPostDTO.LivroGeneroId = 0;
+            exception = await Assert.ThrowsAsync<Exception>(() => _livroService.LivroPost(livroPostDTO));
+
+            Assert.Equal("Todos os campos devem ser preenchidos", exception.Message);
+
+            livroPostDTO = new LivroPostDTO();
+            livroPostDTO.Titulo = "Título Teste";
+            livroPostDTO.Autor = "Autor Teste";
+            livroPostDTO.Ano = "2022";
+            livroPostDTO.Editora = "";
+            livroPostDTO.LivroGeneroId = 1;
+            exception = await Assert.ThrowsAsync<Exception>(() => _livroService.LivroPost(livroPostDTO));
+
+            Assert.Equal("Todos os campos devem ser preenchidos", exception.Message);
+
+            livroPostDTO = new LivroPostDTO();
+            livroPostDTO.Titulo = "Título Teste";
+            livroPostDTO.Autor = "Autor Teste";
+            livroPostDTO.Ano = "";
+            livroPostDTO.Editora = "Editora Teste";
+            livroPostDTO.LivroGeneroId = 1;
+            exception = await Assert.ThrowsAsync<Exception>(() => _livroService.LivroPost(livroPostDTO));
+
+            Assert.Equal("Todos os campos devem ser preenchidos", exception.Message);
+
+            livroPostDTO = new LivroPostDTO();
+            livroPostDTO.Titulo = "Título Teste";
+            livroPostDTO.Autor = "";
+            livroPostDTO.Ano = "2022";
+            livroPostDTO.Editora = "Editora Teste";
+            livroPostDTO.LivroGeneroId = 1;
+            exception = await Assert.ThrowsAsync<Exception>(() => _livroService.LivroPost(livroPostDTO));
+
+            Assert.Equal("Todos os campos devem ser preenchidos", exception.Message);
+
+            livroPostDTO = new LivroPostDTO();
+            livroPostDTO.Titulo = "";
+            livroPostDTO.Autor = "Autor Teste";
+            livroPostDTO.Ano = "2022";
+            livroPostDTO.Editora = "Editora Teste";
+            livroPostDTO.LivroGeneroId = 1;
+            exception = await Assert.ThrowsAsync<Exception>(() => _livroService.LivroPost(livroPostDTO));
+
+            Assert.Equal("Todos os campos devem ser preenchidos", exception.Message);
+        }
+
+        [Fact(DisplayName = "LivroPost02 - Deve retornar um erro caso o GeneroId não exista")]
+        public async Task LivroPost02()
+        {
+            LivroPostDTO livroPostDTO = new LivroPostDTO();
+            livroPostDTO.Titulo = "Título Teste";
+            livroPostDTO.Autor = "Autor Teste";
+            livroPostDTO.Ano = "2022";
+            livroPostDTO.Editora = "Editora Teste";
+            livroPostDTO.LivroGeneroId = 1;
+
+            _livroGeneroServiceMock.Setup(s => s.LivroGeneroGetAById(livroPostDTO.LivroGeneroId));
+
+            var exception = await Assert.ThrowsAsync<Exception>(() => _livroService.LivroPost(livroPostDTO));
+
+            Assert.Equal("Gênero do livro não encontrado.", exception.Message);
+        }
+
+        [Fact(DisplayName = "LivroPost03 - Deve retornar Id = 0 simulando a criação de um novo livro")]
+        public async Task LivroPost03()
+        {
+            LivroPostDTO livroPostDTO = new LivroPostDTO();
+            livroPostDTO.Titulo = "Título Teste";
+            livroPostDTO.Autor = "Autor Teste";
+            livroPostDTO.Ano = "2022";
+            livroPostDTO.Editora = "Editora Teste";
+            livroPostDTO.LivroGeneroId = 1;
+            Livro livro = new Livro
+            {
+                Titulo = "Título Teste",
+                Autor = "Autor Teste",
+                Ano = "2022",
+                Editora = "Editora Teste",
+                LivroGeneroId = 0,
+            };
+
+            Livro livroResultado = new Livro
+            {
+                Titulo = "Título Teste",
+                Autor = "Autor Teste",
+                Ano = "2022",
+                Editora = "Editora Teste",
+                LivroGeneroId = 1,
+            };
+            List<Livro> livroResultados = new List<Livro>();
+            livroResultados.Add(livroResultado);
+
+            _livroGeneroServiceMock.Setup(s => s.LivroGeneroGetAById(livroPostDTO.LivroGeneroId)).Returns(new LivroGeneroDTO());
+            _repositoryMock.Setup(s => s.Add(livro)).Returns(Task.FromResult(livroResultados));
+
+            long resultado = await _livroService.LivroPost(livroPostDTO);
+
+            Assert.Equal(resultado, livroResultado.Id);
+        }
+        [Fact(DisplayName = "LivroDelete01 - Uma erro deve ser retornado por não encontrar o livro")]
+        public void LivroDelete01()
+        {
+            var livroId = 1;
+            var exception = Assert.Throws<Exception>(() => _livroService.LivroDelete(livroId));
+            Assert.Equal("Livro não encontrado", exception.Message);
+        }
+        [Fact(DisplayName = "LivroDelete02 - Um livro deve ser deletado")]
+        public void LivroDelete02()
+        {
+            var livroId = 1;
+            Livro livro = new Livro
+            {
+                Titulo = "Título Teste",
+                Autor = "Autor Teste",
+                Ano = "2022",
+                Editora = "Editora Teste",
+                LivroGeneroId = 1,
+            };
+            _repositoryMock.Setup(s => s.GetById(livroId)).Returns(livro);
+            var resultado = _livroService.LivroDelete(livroId);
+            livro.Excluir();
+            _repositoryMock.Verify(p => p.Update(livro), Times.Once);
+            Assert.Equal("Livro excluído com sucesso", resultado);
+        }
+        [Fact(DisplayName = "LivroPut01 - Um erro deve ser retornado por não encontrar o livro")]
+        public async Task LivroPut01()
+        {
+            LivroDTO livro = new LivroDTO
+            {
+                Titulo = "Título Teste",
+                Autor = "Autor Teste",
+                Ano = "2022",
+                Editora = "Editora Teste",
+                LivroGeneroId = 1,
+                Id = 1
+            };
+            _repositoryMock.Setup(s => s.GetById(livro.Id));
+            var exception = await Assert.ThrowsAsync<Exception>(() => _livroService.LivroPut(livro));
+            Assert.Equal("Livro não encontrado", exception.Message);
+        }
+        [Fact(DisplayName = "LivroPut02 - Um livro deve ser alterado")]
+        public async Task LivroPut02()
+        {
+            LivroDTO livroDTO = new LivroDTO
+            {
+                Titulo = "Título Teste",
+                Autor = "Autor Teste",
+                Ano = "2022",
+                Editora = "Editora Teste",
+                LivroGeneroId = 1,
+            };
+
+            Livro livro = new Livro
+            {
+                Titulo = "Título Teste",
+                Autor = "Autor Teste",
+                Ano = "2022",
+                Editora = "Editora Teste",
+                LivroGeneroId = 1,
+            };
+
+            _repositoryMock.Setup(s => s.GetById(livroDTO.Id)).Returns(livro);
+            var resultado = await _livroService.LivroPut(livroDTO);
+            _repositoryMock.Verify(p => p.Update(livro), Times.Once);
+            Assert.Equal("Sucesso ao alterar o livro.", resultado);
+        }
+    }
+}

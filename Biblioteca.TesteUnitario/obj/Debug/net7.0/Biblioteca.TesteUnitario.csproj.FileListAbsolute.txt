@@ -1,3 +1,9 @@
+C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\CoverletSourceRootsMapping_Biblioteca.TesteUnitario
+C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.csproj.AssemblyReference.cache
+C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.AssemblyInfoInputs.cache
+C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.AssemblyInfo.cs
+C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.csproj.CoreCompileInputs.cache
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\testhost.dll
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\testhost.exe
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
@@ -8,6 +14,7 @@ C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Biblioteca.T
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Biblioteca.TesteUnitario.dll
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Biblioteca.TesteUnitario.pdb
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\AutoMapper.dll
+C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Castle.Core.dll
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Dapper.dll
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\FluentResults.dll
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\FluentValidation.dll
@@ -44,6 +51,7 @@ C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Microsoft.Te
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Microsoft.TestPlatform.Utilities.dll
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Microsoft.VisualStudio.TestPlatform.Common.dll
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Moq.dll
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\MySql.Data.dll
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\MySql.EntityFrameworkCore.dll
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Newtonsoft.Json.dll
@@ -145,20 +153,12 @@ C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Biblioteca.I
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Biblioteca.Infra.Data.dll
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Biblioteca.Application.pdb
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Biblioteca.Domain.pdb
+C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Biblioteca.Infra.Data.pdb
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Biblioteca.Domain.Core.pdb
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Biblioteca.Infra.CrossCutting.Identity.pdb
-C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Biblioteca.Infra.Data.pdb
-C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.csproj.AssemblyReference.cache
-C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.GeneratedMSBuildEditorConfig.editorconfig
-C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.AssemblyInfoInputs.cache
-C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.AssemblyInfo.cs
-C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.csproj.CoreCompileInputs.cache
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.csproj.CopyComplete
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.dll
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\refint\Biblioteca.TesteUnitario.dll
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.pdb
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.genruntimeconfig.cache
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\ref\Biblioteca.TesteUnitario.dll
-C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\CoverletSourceRootsMapping_Biblioteca.TesteUnitario
-C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Castle.Core.dll
-C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\Moq.dll

@@ -9,6 +9,7 @@ namespace Biblioteca.Application.AutoMapper
         public ApplicationMappingProfile() {
             CreateMap<ClienteDTO, Cliente>().ReverseMap();
             CreateMap<LivroDTO, Livro>().ReverseMap();
+            CreateMap<LivroPostDTO, Livro>().ReverseMap();
             CreateMap<LivroGeneroDTO, LivroGenero>().ReverseMap();
         }
     }

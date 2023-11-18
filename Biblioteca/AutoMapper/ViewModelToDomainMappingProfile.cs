@@ -8,7 +8,7 @@ namespace Biblioteca.Api.AutoMapper
     public class ViewModelToDomainMappingProfile :  Profile
     {
         public ViewModelToDomainMappingProfile() {
-            CreateMap<LivroViewModel, LivroDTO>().ReverseMap();
+            CreateMap<LivroViewModel, LivroPostDTO>().ReverseMap();
         }
     }
 }

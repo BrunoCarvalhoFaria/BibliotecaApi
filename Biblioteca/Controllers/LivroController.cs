@@ -34,7 +34,7 @@ namespace Biblioteca.Api.Controllers
         {
             try
             {
-                return Ok(await _livroService.LivroPost(_mapper.Map<LivroDTO>(livro)));
+                return Ok(await _livroService.LivroPost(_mapper.Map<LivroPostDTO>(livro)));
             }
             catch (Exception ex)
             {

@@ -3,6 +3,7 @@ using Biblioteca.Application.DTO;
 using Biblioteca.Application.Interfaces;
 using Biblioteca.Domain.Entities;
 using Biblioteca.Domain.Interfaces;
+using Biblioteca.Infra.Data.Repository;
 
 namespace Biblioteca.Application.Services
 {
@@ -84,13 +85,13 @@ namespace Biblioteca.Application.Services
         {
             try
             {
+                if (_livroGeneroRepository.GetById(dto.Id) == null)
+                    throw new Exception("Gênero não encontrado");
                 _livroGeneroRepository.Update(_mapper.Map<LivroGenero>(dto));
                 return "Sucesso ao alterar o livroGenero.";
-
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
