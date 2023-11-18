@@ -16,13 +16,11 @@ namespace Biblioteca.TesteUnitario.Application.Services
         private readonly Mock<IUsuarioAutorizacaoService> _usuarioAutorizacaoServiceMock;
         private readonly Mock<ILivroRepository> _repositoryMock;
         private readonly Mock<ILivroGeneroService> _livroGeneroServiceMock;
-        private readonly Mock<IEstoqueService> _estoqueService;
         private readonly IMapper _mapper;
         public LivroServiceTest()
         {
             _usuarioAutorizacaoServiceMock = new Mock<IUsuarioAutorizacaoService>();
             _livroGeneroServiceMock = new Mock<ILivroGeneroService>();
-            _estoqueService = new Mock<IEstoqueService>();
 
             _repositoryMock = new Mock<ILivroRepository>();
             var configuration = new MapperConfiguration(options =>
@@ -32,7 +30,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
             });
             IMapper _mapper = new Mapper(configuration);
             IUtilsService utilsService = new UtilsService();
-            _livroService = new LivroService(_repositoryMock.Object, _mapper, _usuarioAutorizacaoServiceMock.Object, _livroGeneroServiceMock.Object, utilsService, _estoqueService.Object);
+            _livroService = new LivroService(_repositoryMock.Object, _mapper, _usuarioAutorizacaoServiceMock.Object, _livroGeneroServiceMock.Object, utilsService );
         }
 
         [Fact(DisplayName = "LivroPost01 - Deve retornar um erro caso alguma das propriedades não for preenchida")]

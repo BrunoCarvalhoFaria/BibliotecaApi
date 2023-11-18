@@ -2,6 +2,8 @@
 using Biblioteca.Api.ViewModel;
 using Biblioteca.Application.DTO;
 using Biblioteca.Application.Interfaces;
+using Biblioteca.Application.Services;
+using Biblioteca.Domain.Entities;
 using Biblioteca.Domain.Entities.ApplicationUsers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -17,15 +19,18 @@ namespace Biblioteca.Api.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILivroService _livroService;
         private readonly IMapper _mapper;
+        private readonly IEstoqueService _estoqueService;
         public LivroController(UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IMapper mapper,
-            ILivroService livroService)
+            ILivroService livroService,
+            IEstoqueService estoqueService)
         {
             _userManager = userManager;
             _livroService = livroService;
             _signInManager = signInManager;
             _mapper = mapper;
+            _estoqueService = estoqueService;
         }
 
         [HttpPost]
@@ -34,7 +39,11 @@ namespace Biblioteca.Api.Controllers
         {
             try
             {
-                return Ok(await _livroService.LivroPost(_mapper.Map<LivroPostDTO>(livro)));
+                var livroId = await _livroService.LivroPost(_mapper.Map<LivroPostDTO>(livro));
+                EstoqueDTO estoque = new EstoqueDTO { LivroId = livroId, Qtd = 0};
+                await _estoqueService.PostEstoque(estoque);
+
+                return Ok();
             }
             catch (Exception ex)
             {
