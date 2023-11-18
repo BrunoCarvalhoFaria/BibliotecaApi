@@ -5,7 +5,6 @@ using Biblioteca.Application.Interfaces;
 using Biblioteca.Application.Services;
 using Biblioteca.Domain.Entities;
 using Biblioteca.Domain.Interfaces;
-using Biblioteca.Infra.Data.Repository;
 using Moq;
 
 namespace Biblioteca.TesteUnitario.Application.Services
@@ -17,11 +16,13 @@ namespace Biblioteca.TesteUnitario.Application.Services
         private readonly Mock<IUsuarioAutorizacaoService> _usuarioAutorizacaoServiceMock;
         private readonly Mock<ILivroRepository> _repositoryMock;
         private readonly Mock<ILivroGeneroService> _livroGeneroServiceMock;
+        private readonly Mock<IEstoqueService> _estoqueService;
         private readonly IMapper _mapper;
         public LivroServiceTest()
         {
             _usuarioAutorizacaoServiceMock = new Mock<IUsuarioAutorizacaoService>();
             _livroGeneroServiceMock = new Mock<ILivroGeneroService>();
+            _estoqueService = new Mock<IEstoqueService>();
 
             _repositoryMock = new Mock<ILivroRepository>();
             var configuration = new MapperConfiguration(options =>
@@ -31,7 +32,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
             });
             IMapper _mapper = new Mapper(configuration);
             IUtilsService utilsService = new UtilsService();
-            _livroService = new LivroService(_repositoryMock.Object, _mapper, _usuarioAutorizacaoServiceMock.Object, _livroGeneroServiceMock.Object, utilsService);
+            _livroService = new LivroService(_repositoryMock.Object, _mapper, _usuarioAutorizacaoServiceMock.Object, _livroGeneroServiceMock.Object, utilsService, _estoqueService.Object);
         }
 
         [Fact(DisplayName = "LivroPost01 - Deve retornar um erro caso alguma das propriedades não for preenchida")]
@@ -142,13 +143,13 @@ namespace Biblioteca.TesteUnitario.Application.Services
                 LivroGeneroId = 1,
             };
             List<Livro> livroResultados = new List<Livro>();
-            livroResultados.Add(livroResultado);
+            //livroResultados.Add(livroResultado);
 
             _livroGeneroServiceMock.Setup(s => s.LivroGeneroGetAById(livroPostDTO.LivroGeneroId)).Returns(new LivroGeneroDTO());
-            _repositoryMock.Setup(s => s.Add(livro)).Returns(Task.FromResult(livroResultados));
+            _repositoryMock.Setup(s => s.Add(livro)).Returns(Task.FromResult(livroResultado));
 
             long resultado = await _livroService.LivroPost(livroPostDTO);
-
+            
             Assert.Equal(resultado, livroResultado.Id);
         }
         [Fact(DisplayName = "LivroDelete01 - Uma erro deve ser retornado por não encontrar o livro")]

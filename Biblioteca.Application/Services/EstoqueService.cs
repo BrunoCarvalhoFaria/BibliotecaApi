@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Biblioteca.Application.DTO;
 using Biblioteca.Application.Interfaces;
 using Biblioteca.Domain.Entities;
 using Biblioteca.Domain.Interfaces;
+using Biblioteca.Infra.Data.Repository;
 using System.Reflection;
 
 namespace Biblioteca.Application.Services
@@ -11,13 +13,16 @@ namespace Biblioteca.Application.Services
         private readonly IMapper _mapper;
         private readonly IEstoqueRepository _estoqueRepository;
         private readonly IUsuarioAutorizacaoService _usuarioAutorizacaoService;
+        private readonly ILivroService _livroService;
         public EstoqueService(IEstoqueRepository estoqueRepository,
             IMapper mapper,
-            IUsuarioAutorizacaoService usuarioAutorizacaoService)
+            IUsuarioAutorizacaoService usuarioAutorizacaoService,
+            ILivroService livroService)
         {
             _estoqueRepository = estoqueRepository;
             _usuarioAutorizacaoService = usuarioAutorizacaoService;
             _mapper = mapper;
+            _livroService = livroService;
         }
         public long CalcularEstoque(Estoque estoque, long qtd)
         {
@@ -47,6 +52,23 @@ namespace Biblioteca.Application.Services
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+        public async Task<long> PostEstoque(EstoqueDTO dto)
+        {
+            try
+            {
+                    if (_livroService.LivroGetAById(dto.LivroId) == null)
+                        throw new Exception("Livro não encontrado.");
+                    Estoque estoque = _mapper.Map<Estoque>(dto);
+                    await _estoqueRepository.Add(estoque);
+                    return estoque.Id;
+                
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

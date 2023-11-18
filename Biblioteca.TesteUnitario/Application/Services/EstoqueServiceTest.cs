@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Biblioteca.Application.AutoMapper;
+using Biblioteca.Application.DTO;
 using Biblioteca.Application.Interfaces;
 using Biblioteca.Application.Services;
 using Biblioteca.Domain.Entities;
@@ -7,6 +8,7 @@ using Biblioteca.Domain.Interfaces;
 using Biblioteca.Infra.Data.Repository;
 using Moq;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace Biblioteca.TesteUnitario.Application.Services
 {
@@ -15,10 +17,11 @@ namespace Biblioteca.TesteUnitario.Application.Services
         private readonly IEstoqueService _estoqueService;
         private readonly Mock<IUsuarioAutorizacaoService> _usuarioAutorizacaoServiceMock;
         private readonly Mock<IEstoqueRepository> _repositoryMock;
+        private readonly Mock<ILivroService> _livroService;
         public EstoqueServiceTest()
         {
             _usuarioAutorizacaoServiceMock = new Mock<IUsuarioAutorizacaoService>();
-
+            _livroService = new Mock<ILivroService>();
             _repositoryMock = new Mock<IEstoqueRepository>();
             var configuration = new MapperConfiguration(options =>
             {
@@ -27,15 +30,18 @@ namespace Biblioteca.TesteUnitario.Application.Services
             });
             IMapper mapper = new Mapper(configuration);
 
-            _estoqueService = new EstoqueService(_repositoryMock.Object, mapper, _usuarioAutorizacaoServiceMock.Object);
+            _estoqueService = new EstoqueService(_repositoryMock.Object, mapper, _usuarioAutorizacaoServiceMock.Object, _livroService.Object);
         }
        
         [Fact(DisplayName = "CalcularEstoque01 - Deve alterar o estoque e verificar todas condições")]
         public void CalcularEstoque()
         {
-            Estoque estoque = new Estoque();
-            estoque.Qtd = 10;
-            
+            Estoque estoque = new Estoque
+            {
+                LivroId = 10,
+                Qtd = 10
+            };
+
             Assert.Equal( 15, _estoqueService.CalcularEstoque(estoque, 5));
             estoque.Qtd = 10;
             Assert.Equal(0, _estoqueService.CalcularEstoque(estoque, -10));
@@ -72,6 +78,31 @@ namespace Biblioteca.TesteUnitario.Application.Services
             Estoque resultado = _estoqueService.AlterarEstoque(livroId, qtdInserida);
             _repositoryMock.Verify(p => p.Update(resultado), Times.Once);
             Assert.Equal(resultadoEsperado, resultado);
+        }
+
+        [Fact(DisplayName = "PostEstoque01 - Deve retornar erro por não encontrar o livro")]
+        public async Task PostEstoque01()
+        {
+            EstoqueDTO estoque = new EstoqueDTO { LivroId = 1, Qtd = 1 };
+            var exception = await Assert.ThrowsAsync<Exception>(() => _estoqueService.PostEstoque(estoque));
+            Assert.Equal("Livro não encontrado.", exception.Message);
+        }
+        [Fact(DisplayName = "PostEstoque02 - Deve adicionar o estoque com sucesso")]
+        public async Task PostEstoque02()
+        {
+            EstoqueDTO estoqueDTO = new EstoqueDTO { LivroId = 1, Qtd = 1 };
+            Estoque estoque = new Estoque { LivroId = 1, Qtd = 1 };
+            LivroDTO livroDTO = new LivroDTO
+            {
+                Titulo = "Título Teste",
+                Autor = "Autor Teste",
+                Ano = "2022",
+                Editora = "Editora Teste",
+                LivroGeneroId = 1,
+            };
+            _livroService.Setup(p => p.LivroGetAById(estoqueDTO.LivroId)).Returns(livroDTO);
+            _estoqueService.PostEstoque(estoqueDTO);
+            _repositoryMock.Verify(p => p.Add(estoque), Times.Once);
         }
     }
 }

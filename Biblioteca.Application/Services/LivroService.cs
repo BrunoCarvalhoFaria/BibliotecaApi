@@ -13,17 +13,20 @@ namespace Biblioteca.Application.Services
         private readonly IUsuarioAutorizacaoService _usuarioAutorizacaoService;
         private readonly ILivroGeneroService _livroGeneroService;
         private readonly IUtilsService _utilsService;
+        private readonly IEstoqueService _estoqueService;
         public LivroService(ILivroRepository livroRepository,
             IMapper mapper,
             IUsuarioAutorizacaoService usuarioAutorizacaoService,
             ILivroGeneroService livroGeneroService,
-            IUtilsService utilsService)
+            IUtilsService utilsService,
+            IEstoqueService estoqueService)
         {
             _livroRepository = livroRepository;
             _usuarioAutorizacaoService = usuarioAutorizacaoService;
             _livroGeneroService = livroGeneroService;
             _mapper = mapper;
             _utilsService = utilsService;
+            _estoqueService = estoqueService;
         }
 
         public async Task<long> LivroPost(LivroPostDTO dto)
@@ -36,6 +39,8 @@ namespace Biblioteca.Application.Services
                     throw new Exception("Gênero do livro não encontrado.");
                 Livro livro = _mapper.Map<Livro>(dto);
                 await _livroRepository.Add(livro);
+                EstoqueDTO estoque = new EstoqueDTO { LivroId = livro.Id, Qtd = 0 };
+                await _estoqueService.PostEstoque(estoque);
                 return livro.Id;
             }
             catch (Exception)
