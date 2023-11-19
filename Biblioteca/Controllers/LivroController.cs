@@ -41,9 +41,7 @@ namespace Biblioteca.Api.Controllers
             {
                 var livroId = await _livroService.LivroPost(_mapper.Map<LivroPostDTO>(livro));
                 EstoqueDTO estoque = new EstoqueDTO { LivroId = livroId, Qtd = 0};
-                await _estoqueService.PostEstoque(estoque);
-
-                return Ok();
+                return Ok(livroId);
             }
             catch (Exception ex)
             {
@@ -58,6 +56,51 @@ namespace Biblioteca.Api.Controllers
             try
             {
                 return Ok(_livroService.ObterTodos(pagina, qtdRegistros));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public IActionResult ObterPorId(long id)
+        {
+            try
+            {
+                return Ok(_livroService.LivroGetAById(id));
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            } 
+        }
+
+        [HttpPut]
+        [Route("")]
+        public IActionResult AlterarLivro(LivroDTO dto)
+        {
+            try
+            {
+               return Ok(_livroService.LivroPut(dto)); 
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult DeletarLivro(long id)
+        {
+            try
+            {
+                return Ok(_livroService.LivroDelete(id));
             }
             catch (Exception ex)
             {
