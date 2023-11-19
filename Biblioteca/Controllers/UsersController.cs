@@ -101,8 +101,17 @@ namespace Biblioteca.Api.Controllers
 
             if (resultado2.Succeeded)
             {
-                ClienteDTO cliente = new ClienteDTO(usuario.Nome, usuario.Email, usuario.Id);
-                await _clienteService.ClientePost(cliente);
+                ClienteDTO cliente = _clienteService.ObtemClientePorEmail(usuario.Email);
+                if (cliente == null)
+                {
+                    cliente = new ClienteDTO(usuario.Nome, usuario.Email, usuario.Id);
+                    await _clienteService.ClientePost(cliente);
+                } else
+                {
+                    cliente.UsuarioId = usuario.Id;
+                    _clienteService.ClientePut(cliente);
+                }
+
                 return Ok("Usuário criado com sucesso!");
             }
             else

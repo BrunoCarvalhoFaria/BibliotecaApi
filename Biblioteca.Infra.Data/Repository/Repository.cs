@@ -16,12 +16,12 @@ namespace DrPay.Infra.Data.Repository
 {
     public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEntity : Entity<TEntity>
     {
-        protected readonly Biblioteca.Infra.Data.BibliotecaDbContext data;
+        protected readonly BibliotecaDbContext data;
         protected readonly string stringConnection;
         private bool disposedValue;
 
 
-        protected Repository(Biblioteca.Infra.Data.BibliotecaDbContext context)
+        protected Repository(BibliotecaDbContext context)
         {
             data = context;
             stringConnection = Configuracoes.Configuration.GetConnectionString("ConnectionMysql")!;
@@ -81,8 +81,8 @@ namespace DrPay.Infra.Data.Repository
         public virtual IEnumerable<TEntity> Buscar(Expression<Func<TEntity, bool>> predicate)
         {
             Expression<Func<TEntity, bool>> naoExcluido = c => c.Excluido == false;
-            Expression<Func<TEntity, bool>> naoExcluidoEPredicate = naoExcluido.And(predicate);
-            return data.Set<TEntity>().Where(naoExcluidoEPredicate);
+            Expression<Func<TEntity, bool>> naoExcluidoAndPredicate = naoExcluido.And(predicate);
+            return data.Set<TEntity>().Where(naoExcluidoAndPredicate);
         }
 
         protected virtual void Dispose(bool disposing)

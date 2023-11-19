@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Application.DTO;
+using Biblioteca.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,6 @@ namespace Biblioteca.Application.Interfaces
         ClienteDTO? ClienteGetAById(long id);
         string ClienteDelete(long id);
         string ClientePut(ClienteDTO dto);
+        ClienteDTO ObtemClientePorEmail(string email);
     }
 }

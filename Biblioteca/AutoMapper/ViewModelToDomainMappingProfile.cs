@@ -9,6 +9,8 @@ namespace Biblioteca.Api.AutoMapper
     {
         public ViewModelToDomainMappingProfile() {
             CreateMap<LivroViewModel, LivroPostDTO>().ReverseMap();
+            CreateMap<ClientePostViewModel, ClienteDTO>().ReverseMap();
+            CreateMap<ClientePutViewModel, ClienteDTO>().ReverseMap();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Biblioteca.Application.DTO;
-using Biblioteca.Domain.DTO;
+﻿using Biblioteca.Domain.DTO;
 using Biblioteca.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,5 +11,6 @@ namespace Biblioteca.Domain.Interfaces
     public interface IEstoqueRepository : IRepository<Estoque>
     {
         List<RetornoEstoqueDTO> ListarEstoque(List<long> livroIdList);
+        Estoque BuscarPorLivroId(long livroId);
     }
 }

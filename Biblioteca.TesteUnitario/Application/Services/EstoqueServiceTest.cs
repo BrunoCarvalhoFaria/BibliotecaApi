@@ -66,15 +66,13 @@ namespace Biblioteca.TesteUnitario.Application.Services
                 LivroId = 10,
                 Qtd = 10
             };
-            List<Estoque> estoques = new List<Estoque>();
-            estoques.Add(estoque);
 
             Estoque resultadoEsperado = new Estoque{
                 LivroId = 10,
                 Qtd = estoque.Qtd + qtdInserida
             };
 
-            _repositoryMock.Setup(s => s.Buscar(p => p.LivroId == livroId)).Returns(estoques);
+            _repositoryMock.Setup(s => s.BuscarPorLivroId(livroId)).Returns(estoque);
             Estoque resultado = _estoqueService.AlterarEstoque(livroId, qtdInserida);
             _repositoryMock.Verify(p => p.Update(resultado), Times.Once);
             Assert.Equal(resultadoEsperado, resultado);

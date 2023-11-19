@@ -45,7 +45,7 @@ namespace Biblioteca.Application.Services
         {
             try
             {
-                Estoque? estoque = _estoqueRepository.Buscar(p => p.LivroId == livroId).FirstOrDefault();
+                Estoque? estoque = _estoqueRepository.BuscarPorLivroId(livroId);
                 if (estoque == null)
                     throw new Exception("Estoque referente ao livro não encontrado.");
                 estoque.Qtd = CalcularEstoque(estoque, qtd);

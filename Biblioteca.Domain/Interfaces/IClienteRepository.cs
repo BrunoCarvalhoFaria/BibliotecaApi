@@ -9,5 +9,6 @@ namespace Biblioteca.Domain.Interfaces
 {
     public interface IClienteRepository : IRepository<Cliente>
     {
+        Cliente ObtemClientePorEmail(string email);
     }
 }

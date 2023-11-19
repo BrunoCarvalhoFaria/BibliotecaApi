@@ -36,7 +36,8 @@ namespace Biblioteca.Api.Controllers
             {
                 if (livroId == 0 || qtdInserida == 0)
                     throw new Exception("Todos parâmetros devem ser preenchidos");
-                return Ok(_estoqueService.AlterarEstoque(livroId, qtdInserida));
+                _estoqueService.AlterarEstoque(livroId, qtdInserida);
+                return Ok("Quantidade alterada com sucesso!");
             }
             catch (Exception ex)
             {

@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Biblioteca.Api.ViewModel;
 using Biblioteca.Application.DTO;
 using Biblioteca.Application.Interfaces;
+using Biblioteca.Domain.DTO;
 using Biblioteca.Domain.Entities.ApplicationUsers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -29,16 +31,17 @@ namespace Biblioteca.Api.Controllers
 
         [HttpPost]
         [Route("")]
-        public IActionResult AdicionarCliente([FromBody] ClienteDTO dto)
+        public async Task<IActionResult> AdicionarCliente([FromBody] ClientePostViewModel dto)
         {
             try
             {
-                return Ok(_clienteService.ClientePost(dto));
+                long id = await _clienteService.ClientePost(_mapper.Map<ClienteDTO>(dto));
+                return Ok(id);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                return BadRequest(ex.Message);
+                return BadRequest("Cliente não cadastrado");
             }
         }
         [HttpGet]
@@ -70,11 +73,11 @@ namespace Biblioteca.Api.Controllers
         }
         [HttpPut]
         [Route("")]
-        public IActionResult AlterarCliente([FromBody] ClienteDTO dto)
+        public IActionResult AlterarCliente([FromBody] ClientePutViewModel dto)
         {
             try
             {
-                return Ok(_clienteService.ClientePut(dto));
+                return Ok(_clienteService.ClientePut(_mapper.Map<ClienteDTO>(dto)));
             }
             catch (Exception ex)
             {

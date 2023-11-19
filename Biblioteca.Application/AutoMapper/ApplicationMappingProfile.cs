@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Biblioteca.Application.DTO;
+using Biblioteca.Domain.DTO;
 using Biblioteca.Domain.Entities;
 
 namespace Biblioteca.Application.AutoMapper

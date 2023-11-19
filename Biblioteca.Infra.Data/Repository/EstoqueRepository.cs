@@ -1,5 +1,4 @@
-﻿using Biblioteca.Application.DTO;
-using Biblioteca.Domain.DTO;
+﻿using Biblioteca.Domain.DTO;
 using Biblioteca.Domain.Entities;
 using Biblioteca.Domain.Interfaces;
 using Dapper;
@@ -24,12 +23,22 @@ namespace Biblioteca.Infra.Data.Repository
             sql.AppendLine($@"select 
                 a.Titulo ,
                 a.Autor,
-                b.Qtd
+                b.Qtd,
+                a.Id as LivroId
                 from livro a 
                 inner join estoque b on b.LivroId = a.Id
                 where a.Id in ({string.Join(",", livroIdList.ToList())}) ");
             var dados = data.Database.GetDbConnection().Query<RetornoEstoqueDTO>(sql.ToString());
             return dados.ToList();
         }
+
+        public Estoque BuscarPorLivroId(long livroId)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.AppendLine($@"select * from estoque a where a.LivroId = {livroId} ");
+            
+            return data.Database.GetDbConnection().Query<Estoque>(sql.ToString()).FirstOrDefault(); ;
+        }
+
     }
 }

@@ -77,7 +77,10 @@ namespace Biblioteca.Application.Services
                 var cliente = _clienteRepository.GetById((long)dto.Id);
                 if (cliente == null)
                     throw new Exception("Cliente não encontrado");
-                _clienteRepository.Update(_mapper.Map<Cliente>(dto));
+                cliente.Nome = dto.Nome;
+                cliente.Email = dto.Email;
+                cliente.UsuarioId = dto.UsuarioId;
+                _clienteRepository.Update(_mapper.Map<Cliente>(cliente));
                 return "Sucesso ao alterar o cliente.";
             }
             catch (Exception)
@@ -85,6 +88,10 @@ namespace Biblioteca.Application.Services
 
                 throw;
             }
+        }
+        public ClienteDTO ObtemClientePorEmail(string email)
+        {
+            return _mapper.Map<ClienteDTO>(_clienteRepository.ObtemClientePorEmail(email));
         }
     }
 }

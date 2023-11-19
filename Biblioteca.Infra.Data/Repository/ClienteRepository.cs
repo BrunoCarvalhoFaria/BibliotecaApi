@@ -1,5 +1,6 @@
 ﻿using Biblioteca.Domain.Entities;
 using Biblioteca.Domain.Interfaces;
+using Dapper;
 using DrPay.Infra.Data.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,6 +18,15 @@ namespace Biblioteca.Infra.Data.Repository
         public ClienteRepository(BibliotecaDbContext context) : base(context)
         {
             _optionsBuilder = new DbContextOptions<BibliotecaDbContext>();
+        }
+
+        public Cliente ObtemClientePorEmail(string email)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.AppendLine($@"select * from Cliente a where a.Email like '{email}' ");
+
+            return data.Database.GetDbConnection().Query<Cliente>(sql.ToString()).FirstOrDefault();
+
         }
     }
 }
