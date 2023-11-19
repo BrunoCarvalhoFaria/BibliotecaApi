@@ -136,14 +136,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
             var resultado = _emprestimoService.RealizarDevolucao(emprestimoId);
             Assert.Equal(0, resultado);
         }
-        [Fact(DisplayName = "ObterEmprestimos01 - Deve retornar erro por não encontrar o cliente")]
-        public void ObterEmprestimos01()
-        {
-            long clienteId = 0;
-            bool apenasEmprestimosPendentes = false;
-            var exception = Assert.Throws<Exception>(() => _emprestimoService.ObterEmprestimos(clienteId, apenasEmprestimosPendentes));
-            Assert.Equal("Cliente não encontrado.", exception.Message);
-        }
+        
         [Fact(DisplayName = "ObterEmprestimos02 - Deve retornar todos os emprestimos do cliente")]
         public void ObterEmprestimos02()
         {
@@ -161,9 +154,9 @@ namespace Biblioteca.TesteUnitario.Application.Services
             clienteEmprestimos.Add(emprestimoDevolvido);
             clienteEmprestimos.Add(emprestimoNaoDevolvido);
             var clienteEmprestimoNaoDevolvidos = clienteEmprestimos.Where(s => s.DataDevolucao == DateTimeOffset.MinValue).ToList();
-            _repositoryMock.Setup(p=>p.ObterEmprestimos(clienteId,true)).Returns(clienteEmprestimoNaoDevolvidos);
-            _repositoryMock.Setup(p => p.ObterEmprestimos(clienteId, false)).Returns(clienteEmprestimos);
-            var resultado = _emprestimoService.ObterEmprestimos(clienteId, apenasEmprestimosPendentes);
+            _repositoryMock.Setup(p=>p.ObterEmprestimos(clienteId,true, null, null)).Returns(clienteEmprestimoNaoDevolvidos);
+            _repositoryMock.Setup(p => p.ObterEmprestimos(clienteId, false,null,null)).Returns(clienteEmprestimos);
+            var resultado = _emprestimoService.ObterEmprestimos(clienteId, apenasEmprestimosPendentes, null, null);
             for (int i = 0; i < resultado.Count; i++)
             {
                 Assert.Equal(clienteEmprestimos[i].LivroId,  resultado[i].LivroId);
@@ -186,9 +179,9 @@ namespace Biblioteca.TesteUnitario.Application.Services
             clienteEmprestimos.Add(emprestimoDevolvido);
             clienteEmprestimos.Add(emprestimoNaoDevolvido);
             var clienteEmprestimoNaoDevolvidos = clienteEmprestimos.Where(s => s.DataDevolucao == null).ToList();
-            _repositoryMock.Setup(p => p.ObterEmprestimos(clienteId, true)).Returns(clienteEmprestimoNaoDevolvidos);
-            _repositoryMock.Setup(p => p.ObterEmprestimos(clienteId, false)).Returns(clienteEmprestimos);
-            var resultado = _emprestimoService.ObterEmprestimos(clienteId, apenasEmprestimosPendentes);
+            _repositoryMock.Setup(p => p.ObterEmprestimos(clienteId, true, null, null)).Returns(clienteEmprestimoNaoDevolvidos);
+            _repositoryMock.Setup(p => p.ObterEmprestimos(clienteId, false, null, null)).Returns(clienteEmprestimos);
+            var resultado = _emprestimoService.ObterEmprestimos(clienteId, apenasEmprestimosPendentes, null, null);
             for (int i = 0; i < resultado.Count; i++)
             {
                 Assert.Equal(clienteEmprestimoNaoDevolvidos[i].LivroId, resultado[i].LivroId);

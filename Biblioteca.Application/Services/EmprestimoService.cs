@@ -4,6 +4,7 @@ using Biblioteca.Application.Interfaces;
 using Biblioteca.Domain.DTO;
 using Biblioteca.Domain.Entities;
 using Biblioteca.Domain.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,13 +82,12 @@ namespace Biblioteca.Application.Services
             }
         }
 
-        public List<EstoqueConsultaDTO> ObterEmprestimos(long clienteId, bool apenasPendentesDevolucao)
+        public List<EstoqueConsultaDTO> ObterEmprestimos(long? clienteId, bool apenasPendentesDevolucao, DateTimeOffset? dataInicial, DateTimeOffset? dataFinal)
         {
             try
             {
-                if(_clienteService.ClienteGetAById(clienteId) == null)
-                    throw new Exception("Cliente não encontrado.");
-                return  _emprestimoRepository.ObterEmprestimos(clienteId, apenasPendentesDevolucao);
+                
+                return  _emprestimoRepository.ObterEmprestimos(clienteId, apenasPendentesDevolucao, dataInicial, dataFinal);
             }
             catch (Exception)
             {

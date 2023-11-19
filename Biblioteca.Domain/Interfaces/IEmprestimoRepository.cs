@@ -10,6 +10,6 @@ namespace Biblioteca.Domain.Interfaces
 {
     public interface IEmprestimoRepository : IRepository<Emprestimo>
     {
-        List<EstoqueConsultaDTO> ObterEmprestimos(long clienteId, bool apenasPendentesDevolucao);
+        List<EstoqueConsultaDTO> ObterEmprestimos(long? clienteId, bool apenasPendentesDevolucao, DateTimeOffset? dataInicial, DateTimeOffset? dataFinal);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Biblioteca.Api.ViewModel;
 using Biblioteca.Application.Interfaces;
 using Biblioteca.Domain.Entities.ApplicationUsers;
 using Microsoft.AspNetCore.Identity;
@@ -54,13 +55,14 @@ namespace Biblioteca.Api.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("")]
-        public IActionResult ObterEmprestimos(long clienteId, bool apenasPendentesDevolucao)
+        [HttpPut]
+        [Route("ObterEmprestimosComFiltro")]
+        public IActionResult ObterEmprestimos([FromBody] FiltroEstoqueViewModel filtros)
         {
             try
             {
-                return Ok(_emprestimoService.ObterEmprestimos(clienteId, apenasPendentesDevolucao));
+                bool apenasSemDevolucao = filtros.ApenasPendentesDevolucao ?? false;
+                return Ok(_emprestimoService.ObterEmprestimos(filtros.ClienteId, apenasSemDevolucao, filtros.DataInicial, filtros.DataFinal));
             }
             catch (Exception ex)
             {

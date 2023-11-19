@@ -12,6 +12,6 @@ namespace Biblioteca.Application.Interfaces
     {
         Task<long> RealizarEmprestimo(long clienteId, long livroId);
         long RealizarDevolucao(long emprestimoId);
-        List<EstoqueConsultaDTO> ObterEmprestimos(long clienteId, bool apenasPendentesDevolucao);
+        List<EstoqueConsultaDTO> ObterEmprestimos(long? clienteId, bool apenasPendentesDevolucao, DateTimeOffset? dataInicial, DateTimeOffset? dataFinal);
     }
 }
