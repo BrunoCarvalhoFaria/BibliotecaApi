@@ -56,6 +56,47 @@ namespace Biblioteca.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet]
+        [Route("{id}")]
+        public IActionResult ObterLivroGeneroPorId(long id)
+        {
+            try
+            {
+                return Ok(_livroGeneroService.LivroGeneroGetAById(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult DeletarLivroGenero(long id)
+        {
+            try
+            {
+                return Ok(_livroGeneroService.LivroGeneroDelete(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+                throw;
+            }
+        }
+        [HttpPut]
+        [Route("")]
+        public IActionResult AlterarLivroGenero([FromBody]LivroGeneroDTO dto)
+        {
+            try
+            {
+                return Ok(_livroGeneroService.LivroGeneroPut(dto));
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
     }
 
 }

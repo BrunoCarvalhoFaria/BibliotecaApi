@@ -80,7 +80,7 @@ namespace Biblioteca.Api.Controllers
 
         [HttpPut]
         [Route("")]
-        public IActionResult AlterarLivro(LivroDTO dto)
+        public IActionResult AlterarLivro([FromBody]LivroDTO dto)
         {
             try
             {
