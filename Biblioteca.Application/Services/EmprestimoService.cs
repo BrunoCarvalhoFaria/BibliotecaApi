@@ -63,21 +63,15 @@ namespace Biblioteca.Application.Services
             }
         }
 
-        public async Task<long> RealizarDevolucao(long clienteId, long livroId, long emprestimoId)
+        public async Task<long> RealizarDevolucao(long emprestimoId)
         {
             try
             {
-                var cliente = _clienteService.ClienteGetAById(clienteId);
-                if (cliente == null)
-                    throw new Exception("Cliente não encontrado.");
-                var livro = _livroService.LivroGetAById(livroId);
-                if (livro == null)
-                    throw new Exception("Livro não encontrado.");
                 var emprestimo = _emprestimoRepository.GetById(emprestimoId);
                 if (emprestimo == null)
                     throw new Exception("Emprestimo não encontrado.");
 
-                _estoqueService.AlterarEstoque(livroId, 1);
+                _estoqueService.AlterarEstoque(emprestimo.LivroId, 1);
                 emprestimo.DataDevolucao = DateTimeOffset.Now;
                 await _emprestimoRepository.Update(emprestimo);
                 return emprestimo.Id;

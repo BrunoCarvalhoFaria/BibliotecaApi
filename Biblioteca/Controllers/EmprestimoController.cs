@@ -25,5 +25,48 @@ namespace Biblioteca.Api.Controllers
             _signInManager = signInManager;
             _mapper = mapper;
         }
+
+        [HttpPost]
+        [Route("realizarEmprestimo")]
+        public IActionResult RealizarEmprestimo(long clienteId, long livroId)
+        {
+            try
+            {
+                return Ok(_emprestimoService.RealizarEmprestimo(clienteId, livroId));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);                
+            }
+        }
+
+        [HttpPut]
+        [Route("realizarDevolucao/{emprestimoId}")]
+        public IActionResult RealizarDevolucao(long emprestimoId)
+        {
+            try
+            {
+                return Ok(_emprestimoService.RealizarDevolucao(emprestimoId));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("")]
+        public IActionResult ObterEmprestimos(long clienteId, bool apenasPendentesDevolucao)
+        {
+            try
+            {
+                return Ok(_emprestimoService.ObterEmprestimos(clienteId, apenasPendentesDevolucao));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }

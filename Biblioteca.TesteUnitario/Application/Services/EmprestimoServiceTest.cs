@@ -92,42 +92,9 @@ namespace Biblioteca.TesteUnitario.Application.Services
         }
 
 
-        [Fact(DisplayName = "RealizarDevolucao01 - Deve retornar erro por não encontrar o cliente")]
+        [Fact(DisplayName = "RealizarDevolucao01 - Deve retornar erro por não encontrar o emprestimo")]
         public async Task RealizarDevolucao01()
         {
-            long clienteId = 0;
-            long livroId = 0;
-            long emprestimoId = 0;
-            LivroDTO livro = new LivroDTO
-            {
-                Titulo = "Título Teste",
-                Autor = "Autor Teste",
-                Ano = "2022",
-                Editora = "Editora Teste",
-                LivroGeneroId = 1,
-            };
-            _livroService.Setup(p => p.LivroGetAById(livroId)).Returns(livro);
-            var exception = await Assert.ThrowsAsync<Exception>(() => _emprestimoService.RealizarDevolucao(clienteId, livroId, emprestimoId));
-            Assert.Equal("Cliente não encontrado.", exception.Message);
-
-        }
-        [Fact(DisplayName = "RealizarDevolucao02 - Deve retornar erro por não encontrar o livro")]
-        public async Task RealizarDevolucao02()
-        {
-            long clienteId = 0;
-            long livroId = 0;
-            long emprestimoId = 0;
-            ClienteDTO cliente = new ClienteDTO("Email Teste", "NomeTeste");
-
-            _clienteService.Setup(p => p.ClienteGetAById(clienteId)).Returns(cliente);
-            var exception = await Assert.ThrowsAsync<Exception>(() => _emprestimoService.RealizarDevolucao(clienteId, livroId, emprestimoId));
-            Assert.Equal("Livro não encontrado.", exception.Message);
-        }
-        [Fact(DisplayName = "RealizarDevolucao03 - Deve retornar erro por não encontrar o emprestimo")]
-        public async Task RealizarDevolucao03()
-        {
-            long clienteId = 0;
-            long livroId = 0;
             long emprestimoId = 0;
             ClienteDTO cliente = new ClienteDTO("Email Teste", "NomeTeste");
             LivroDTO livro = new LivroDTO
@@ -138,13 +105,11 @@ namespace Biblioteca.TesteUnitario.Application.Services
                 Editora = "Editora Teste",
                 LivroGeneroId = 1,
             };
-            _livroService.Setup(p => p.LivroGetAById(livroId)).Returns(livro);
-            _clienteService.Setup(p => p.ClienteGetAById(clienteId)).Returns(cliente);
-            var exception = await Assert.ThrowsAsync<Exception>(() => _emprestimoService.RealizarDevolucao(clienteId, livroId, emprestimoId));
+            var exception = await Assert.ThrowsAsync<Exception>(() => _emprestimoService.RealizarDevolucao(emprestimoId));
             Assert.Equal("Emprestimo não encontrado.", exception.Message);
         }
-        [Fact(DisplayName = "RealizarDevolucao04 - Deve realizar a devolução")]
-        public async Task RealizarDevolucao04()
+        [Fact(DisplayName = "RealizarDevolucao02 - Deve realizar a devolução")]
+        public async Task RealizarDevolucao02()
         {
             long clienteId = 0;
             long livroId = 0;
@@ -165,11 +130,9 @@ namespace Biblioteca.TesteUnitario.Application.Services
                 DataEmprestimo = DateTimeOffset.Now
             };
 
-            _livroService.Setup(p => p.LivroGetAById(livroId)).Returns(livro);
-            _clienteService.Setup(p => p.ClienteGetAById(clienteId)).Returns(cliente);
             _repositoryMock.Setup(p => p.GetById(emprestimoId)).Returns(emprestimo);
 
-            var resultado = await _emprestimoService.RealizarDevolucao(clienteId, livroId, emprestimoId);
+            var resultado = await _emprestimoService.RealizarDevolucao(emprestimoId);
             Assert.Equal(0, resultado);
         }
         [Fact(DisplayName = "ObterEmprestimos01 - Deve retornar erro por não encontrar o cliente")]
