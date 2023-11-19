@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Biblioteca.Api.ViewModel;
 using Biblioteca.Application.Interfaces;
 using Biblioteca.Domain.Entities.ApplicationUsers;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -39,6 +40,21 @@ namespace Biblioteca.Api.Controllers
             }
             catch (Exception ex)
             {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [Route("ObterEstoque")]
+        public IActionResult ObterEstoque([FromBody] ObterEstoqueViewModel obterEstoqueViewModel)
+        {
+            try
+            {
+                return Ok(_estoqueService.ListarEstoque(obterEstoqueViewModel.LivroIds));
+            }
+            catch (Exception ex)
+            {
+
                 return BadRequest(ex.Message);
             }
         }

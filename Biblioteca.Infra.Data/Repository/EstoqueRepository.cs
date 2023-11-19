@@ -1,7 +1,11 @@
-﻿using Biblioteca.Domain.Entities;
+﻿using Biblioteca.Application.DTO;
+using Biblioteca.Domain.DTO;
+using Biblioteca.Domain.Entities;
 using Biblioteca.Domain.Interfaces;
+using Dapper;
 using DrPay.Infra.Data.Repository;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
 
 namespace Biblioteca.Infra.Data.Repository
 {
@@ -12,6 +16,20 @@ namespace Biblioteca.Infra.Data.Repository
         public EstoqueRepository(BibliotecaDbContext context) : base(context)
         {
             _optionsBuilder = new DbContextOptions<BibliotecaDbContext>();
+        }
+
+        public List<RetornoEstoqueDTO> ListarEstoque(List<long> livroIdList)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.AppendLine($@"select 
+                a.Titulo ,
+                a.Autor,
+                b.Qtd
+                from livro a 
+                inner join estoque b on b.LivroId = a.Id
+                where a.Id in ({string.Join(",", livroIdList.ToList())}) ");
+            var dados = data.Database.GetDbConnection().Query<RetornoEstoqueDTO>(sql.ToString());
+            return dados.ToList();
         }
     }
 }

@@ -77,8 +77,8 @@ namespace Biblioteca.Application.Services
         public List<RetornoEstoqueDTO> ListarEstoque(List<long> livroIdList) {
             try
             {
-                //List<RetornoEstoqueDTO> retorno = _estoqueRepository.ListarEstoque(livroIdList);
-                return new List<RetornoEstoqueDTO>();
+                List<RetornoEstoqueDTO> retorno = _estoqueRepository.ListarEstoque(livroIdList);
+                return retorno;
             }
             catch (Exception )
             {

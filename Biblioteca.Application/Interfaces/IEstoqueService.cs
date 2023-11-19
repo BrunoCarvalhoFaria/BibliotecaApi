@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Application.DTO;
+using Biblioteca.Domain.DTO;
 using Biblioteca.Domain.Entities;
 
 namespace Biblioteca.Application.Interfaces
@@ -9,5 +10,6 @@ namespace Biblioteca.Application.Interfaces
         Estoque AlterarEstoque(long livroId, long qtd);
 
         Task<long> PostEstoque(EstoqueDTO dto);
+        List<RetornoEstoqueDTO> ListarEstoque(List<long> livroIdList);
     }
 }

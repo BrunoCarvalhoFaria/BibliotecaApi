@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioteca.Domain.DTO
+namespace Biblioteca.Application.DTO
 {
     public class RetornoEstoqueDTO
     {
-        public string NomeLivro { get; set; }
-        public long EstoqueAtual { get; set; }
-        public long QtdEmprestado { get; set; }
+        public string Titulo { get; set; }
+        public string Autor {  get; set; }
+        public long Qtd { get; set; }
     }
 }

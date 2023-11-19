@@ -41,6 +41,7 @@ namespace Biblioteca.Api.Controllers
             {
                 var livroId = await _livroService.LivroPost(_mapper.Map<LivroPostDTO>(livro));
                 EstoqueDTO estoque = new EstoqueDTO { LivroId = livroId, Qtd = 0};
+                await _estoqueService.PostEstoque(estoque);
                 return Ok(livroId);
             }
             catch (Exception ex)

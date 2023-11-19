@@ -11,7 +11,7 @@ namespace Biblioteca.Application.DTO
     {
         public long Id { get; set; }
         public required long LivroId { get; set; }
-        public required long Qtd { get; set; }
+        public long Qtd { get; set; }
 
     }
 }
