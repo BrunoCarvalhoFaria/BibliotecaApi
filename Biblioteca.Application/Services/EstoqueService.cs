@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using Biblioteca.Application.DTO;
 using Biblioteca.Application.Interfaces;
+using Biblioteca.Domain.DTO;
 using Biblioteca.Domain.Entities;
 using Biblioteca.Domain.Interfaces;
 using Biblioteca.Infra.Data.Repository;
+using Microsoft.AspNetCore.Http.HttpResults;
 using System.Reflection;
 
 namespace Biblioteca.Application.Services
@@ -71,6 +73,20 @@ namespace Biblioteca.Application.Services
 
                 throw;
             }
+        }
+        public List<RetornoEstoqueDTO> ListarEstoque(List<long> livroIdList) {
+            try
+            {
+                //List<RetornoEstoqueDTO> retorno = _estoqueRepository.ListarEstoque(livroIdList);
+                return new List<RetornoEstoqueDTO>();
+            }
+            catch (Exception )
+            {
+
+                throw;
+            }
+        
+        
         }
     }
 }

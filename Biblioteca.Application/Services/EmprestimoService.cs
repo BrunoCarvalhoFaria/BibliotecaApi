@@ -63,7 +63,7 @@ namespace Biblioteca.Application.Services
             }
         }
 
-        public async Task<long> RealizarDevolucao(long emprestimoId)
+        public long RealizarDevolucao(long emprestimoId)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace Biblioteca.Application.Services
 
                 _estoqueService.AlterarEstoque(emprestimo.LivroId, 1);
                 emprestimo.DataDevolucao = DateTimeOffset.Now;
-                await _emprestimoRepository.Update(emprestimo);
+                _emprestimoRepository.Update(emprestimo);
                 return emprestimo.Id;
             }
             catch (Exception)

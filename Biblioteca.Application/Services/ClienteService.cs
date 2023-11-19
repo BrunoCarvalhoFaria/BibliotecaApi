@@ -72,9 +72,11 @@ namespace Biblioteca.Application.Services
         {
             try
             {
-                if (dto.Id == null || _clienteRepository.GetById((long)dto.Id) == null)
+
+                var cliente = _clienteRepository.GetById((long)dto.Id);
+                if (dto.Id == null || cliente == null)
                     throw new Exception("Cliente não encontrado");
-                _clienteRepository.Update(_mapper.Map<Cliente>(dto));
+                _clienteRepository.Update(cliente);
                 return "Sucesso ao alterar o cliente.";
             }
             catch (Exception)

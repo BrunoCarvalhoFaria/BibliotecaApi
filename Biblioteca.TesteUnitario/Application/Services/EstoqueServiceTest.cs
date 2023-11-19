@@ -88,7 +88,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
             Assert.Equal("Livro não encontrado.", exception.Message);
         }
         [Fact(DisplayName = "PostEstoque02 - Deve adicionar o estoque com sucesso")]
-        public async Task PostEstoque02()
+        public void PostEstoque02()
         {
             EstoqueDTO estoqueDTO = new EstoqueDTO { LivroId = 1, Qtd = 1 };
             Estoque estoque = new Estoque { LivroId = 1, Qtd = 1 };

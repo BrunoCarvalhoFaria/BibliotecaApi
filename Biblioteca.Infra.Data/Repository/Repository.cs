@@ -65,11 +65,17 @@ namespace DrPay.Infra.Data.Repository
 
         }
 
-        public async Task Update(TEntity Objeto)
+        public void Update(TEntity Objeto)
         {
-            data.Set<TEntity>().Update(Objeto);
-            await data.SaveChangesAsync();
-
+            try
+            {
+                DetachEntity(Objeto, Objeto.Id);
+                Save();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
          
         public virtual IEnumerable<TEntity> Buscar(Expression<Func<TEntity, bool>> predicate)
@@ -91,6 +97,36 @@ namespace DrPay.Infra.Data.Repository
                 // TODO: free unmanaged resources (unmanaged objects) and override finalizer
                 // TODO: set large fields to null
                 disposedValue = true;
+            }
+        }
+
+        public void DetachEntity(TEntity t, long entryId)
+        {
+            var attachedEntity = data.Set<TEntity>()
+                .FirstOrDefault(entry => entry.Id.Equals(entryId));
+            if (attachedEntity != null)
+            {
+                data.Entry(attachedEntity).State = EntityState.Detached;
+            }
+            data.Entry(t).State = EntityState.Modified;
+        }
+
+        private void Save()
+        {
+            try
+            {
+                data.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine($"Erro: detalhe técnico::: {e?.InnerException?.InnerException?.Message}");
+
+                foreach (var eve in e.Entries)
+                {
+                    sb.AppendLine($"Objeto [{eve.Entity.GetType().Name}] no estado [{eve.State}] não pode ser atualizado.");
+                }
+                throw;
             }
         }
 

@@ -176,7 +176,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
             Assert.Equal("Livro excluído com sucesso", resultado);
         }
         [Fact(DisplayName = "LivroPut01 - Um erro deve ser retornado por não encontrar o livro")]
-        public async Task LivroPut01()
+        public void LivroPut01()
         {
             LivroDTO livro = new LivroDTO
             {
@@ -188,11 +188,11 @@ namespace Biblioteca.TesteUnitario.Application.Services
                 Id = 1
             };
             _repositoryMock.Setup(s => s.GetById(livro.Id));
-            var exception = await Assert.ThrowsAsync<Exception>(() => _livroService.LivroPut(livro));
+            var exception = Assert.Throws<Exception>(() => _livroService.LivroPut(livro));
             Assert.Equal("Livro não encontrado", exception.Message);
         }
         [Fact(DisplayName = "LivroPut02 - Um livro deve ser alterado")]
-        public async Task LivroPut02()
+        public void LivroPut02()
         {
             LivroDTO livroDTO = new LivroDTO
             {
@@ -213,7 +213,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
             };
 
             _repositoryMock.Setup(s => s.GetById(livroDTO.Id)).Returns(livro);
-            var resultado = await _livroService.LivroPut(livroDTO);
+            var resultado = _livroService.LivroPut(livroDTO);
             _repositoryMock.Verify(p => p.Update(livro), Times.Once);
             Assert.Equal("Sucesso ao alterar o livro.", resultado);
         }

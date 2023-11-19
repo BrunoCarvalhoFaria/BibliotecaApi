@@ -78,13 +78,18 @@ namespace Biblioteca.Application.Services
             }
         }
 
-        public async Task<string>LivroPut(LivroDTO dto)
+        public string LivroPut(LivroDTO dto)
         {
             try
             {
-                if (_livroRepository.GetById(dto.Id) == null)
+                if (!_utilsService.TodosPropriedadesPreenchidas(dto))
+                    throw new Exception("Todos os campos devem ser preenchidos");
+                if (_livroGeneroService.LivroGeneroGetAById(dto.LivroGeneroId) == null)
+                    throw new Exception("Gênero do livro não encontrado.");
+                var livro = _livroRepository.GetById(dto.Id);
+                if (livro == null)
                     throw new Exception("Livro não encontrado");
-                await _livroRepository.Update(_mapper.Map<Livro>(dto));
+                _livroRepository.Update(_mapper.Map<Livro>(dto));
                 return "Sucesso ao alterar o livro.";
             }
             catch (Exception)

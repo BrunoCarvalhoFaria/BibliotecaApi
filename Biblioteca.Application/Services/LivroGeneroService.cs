@@ -85,7 +85,8 @@ namespace Biblioteca.Application.Services
         {
             try
             {
-                if (_livroGeneroRepository.GetById(dto.Id) == null)
+                var livroGenero = _livroGeneroRepository.GetById(dto.Id);
+                if (livroGenero == null)
                     throw new Exception("Gênero não encontrado");
                 _livroGeneroRepository.Update(_mapper.Map<LivroGenero>(dto));
                 return "Sucesso ao alterar o livroGenero.";

@@ -1,4 +1,5 @@
-﻿using Biblioteca.Domain.Entities;
+﻿using Biblioteca.Domain.DTO;
+using Biblioteca.Domain.Entities;
 using Biblioteca.Domain.Interfaces;
 using DrPay.Infra.Data.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -18,5 +19,18 @@ namespace Biblioteca.Infra.Data.Repository
         {
             _optionsBuilder = new DbContextOptions<BibliotecaDbContext>();
         }
+
+    //    List<RetornoEstoqueDTO> ListarEstoque(List<long> livroIdList)
+    //    {
+    //        try
+    //        {
+
+    //        }
+    //        catch (Exception)
+    //        {
+
+    //            throw;
+    //        }
+    //    }
     }
 }

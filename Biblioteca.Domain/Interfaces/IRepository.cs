@@ -10,7 +10,7 @@ namespace Biblioteca.Domain.Interfaces
         Task Delete(TEntity Objeto);
         TEntity? GetById(long Id);
         List<TEntity> GetAll();
-        Task Update(TEntity Objeto);
+        void Update(TEntity Objeto);
         IEnumerable<TEntity> Buscar(Expression<Func<TEntity, bool>> predicate);
 
     }

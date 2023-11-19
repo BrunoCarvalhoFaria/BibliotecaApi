@@ -10,7 +10,7 @@ namespace Biblioteca.Application.Interfaces
     public interface IEmprestimoService
     {
         Task<long> RealizarEmprestimo(long clienteId, long livroId);
-        Task<long> RealizarDevolucao(long emprestimoId);
+        long RealizarDevolucao(long emprestimoId);
         List<EmprestimoDTO> ObterEmprestimos(long clienteId, bool apenasPendentesDevolucao);
     }
 }
