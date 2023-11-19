@@ -201,6 +201,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
                 Ano = "2022",
                 Editora = "Editora Teste",
                 LivroGeneroId = 1,
+                Id = 1
             };
 
             Livro livro = new Livro
@@ -213,6 +214,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
             };
 
             _repositoryMock.Setup(s => s.GetById(livroDTO.Id)).Returns(livro);
+            _livroGeneroServiceMock.Setup(s => s.LivroGeneroGetAById(livroDTO.LivroGeneroId)).Returns(new LivroGeneroDTO { Descricao = "teste" });
             var resultado = _livroService.LivroPut(livroDTO);
             _repositoryMock.Verify(p => p.Update(livro), Times.Once);
             Assert.Equal("Sucesso ao alterar o livro.", resultado);

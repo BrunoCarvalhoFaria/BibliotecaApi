@@ -84,11 +84,14 @@ namespace Biblioteca.Application.Services
             {
                 if (!_utilsService.TodosPropriedadesPreenchidas(dto))
                     throw new Exception("Todos os campos devem ser preenchidos");
-                if (_livroGeneroService.LivroGeneroGetAById(dto.LivroGeneroId) == null)
-                    throw new Exception("Gênero do livro não encontrado.");
+                if (dto.Id == null)
+                    throw new Exception("Livro não encontrado");
                 var livro = _livroRepository.GetById(dto.Id);
                 if (livro == null)
                     throw new Exception("Livro não encontrado");
+                if (_livroGeneroService.LivroGeneroGetAById(dto.LivroGeneroId) == null)
+                    throw new Exception("Gênero do livro não encontrado.");
+                
                 _livroRepository.Update(_mapper.Map<Livro>(dto));
                 return "Sucesso ao alterar o livro.";
             }
