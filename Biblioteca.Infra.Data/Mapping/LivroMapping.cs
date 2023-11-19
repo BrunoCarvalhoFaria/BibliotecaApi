@@ -16,6 +16,9 @@ namespace Biblioteca.Infra.Data.Mapping
                 .WithMany(e => e.Livros)
                 .HasForeignKey(p => p.LivroGeneroId);
 
+            builder.HasIndex(u => u.Codigo)
+            .IsUnique();
+
             builder.Ignore(e => e.ValidationResult);
             builder.Ignore(p => p.ClassLevelCascadeMode);
             builder.Ignore(e => e.CascadeMode);

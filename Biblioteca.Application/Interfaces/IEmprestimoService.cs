@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Application.DTO;
+using Biblioteca.Domain.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,6 @@ namespace Biblioteca.Application.Interfaces
     {
         Task<long> RealizarEmprestimo(long clienteId, long livroId);
         long RealizarDevolucao(long emprestimoId);
-        List<EmprestimoDTO> ObterEmprestimos(long clienteId, bool apenasPendentesDevolucao);
+        List<EstoqueConsultaDTO> ObterEmprestimos(long clienteId, bool apenasPendentesDevolucao);
     }
 }

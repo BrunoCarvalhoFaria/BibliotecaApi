@@ -37,7 +37,7 @@ namespace Biblioteca.Infra.Data.Repository
             StringBuilder sql = new StringBuilder();
             sql.AppendLine($@"select * from estoque a where a.LivroId = {livroId} ");
             
-            return data.Database.GetDbConnection().Query<Estoque>(sql.ToString()).FirstOrDefault(); ;
+            return data.Database.GetDbConnection().Query<Estoque>(sql.ToString()).FirstOrDefault();
         }
 
     }

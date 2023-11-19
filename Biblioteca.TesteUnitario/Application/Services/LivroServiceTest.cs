@@ -106,6 +106,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
             livroPostDTO.Ano = "2022";
             livroPostDTO.Editora = "Editora Teste";
             livroPostDTO.LivroGeneroId = 1;
+            livroPostDTO.Codigo = "1e1";
 
             _livroGeneroServiceMock.Setup(s => s.LivroGeneroGetAById(livroPostDTO.LivroGeneroId));
 
@@ -123,8 +124,10 @@ namespace Biblioteca.TesteUnitario.Application.Services
             livroPostDTO.Ano = "2022";
             livroPostDTO.Editora = "Editora Teste";
             livroPostDTO.LivroGeneroId = 1;
+            livroPostDTO.Codigo = "1e1";
             Livro livro = new Livro
             {
+                Codigo = "Codigo",
                 Titulo = "Título Teste",
                 Autor = "Autor Teste",
                 Ano = "2022",
@@ -134,6 +137,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
 
             Livro livroResultado = new Livro
             {
+                Codigo = "Codigo",
                 Titulo = "Título Teste",
                 Autor = "Autor Teste",
                 Ano = "2022",
@@ -163,6 +167,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
             var livroId = 1;
             Livro livro = new Livro
             {
+                Codigo = "Codigo",
                 Titulo = "Título Teste",
                 Autor = "Autor Teste",
                 Ano = "2022",
@@ -181,7 +186,8 @@ namespace Biblioteca.TesteUnitario.Application.Services
             LivroDTO livro = new LivroDTO
             {
                 Titulo = "Título Teste",
-                Autor = "Autor Teste",
+                Codigo = "1e1",
+            Autor = "Autor Teste",
                 Ano = "2022",
                 Editora = "Editora Teste",
                 LivroGeneroId = 1,
@@ -197,7 +203,8 @@ namespace Biblioteca.TesteUnitario.Application.Services
             LivroDTO livroDTO = new LivroDTO
             {
                 Titulo = "Título Teste",
-                Autor = "Autor Teste",
+                Codigo = "1e1",
+        Autor = "Autor Teste",
                 Ano = "2022",
                 Editora = "Editora Teste",
                 LivroGeneroId = 1,
@@ -206,6 +213,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
 
             Livro livro = new Livro
             {
+                Codigo = "Codigo",
                 Titulo = "Título Teste",
                 Autor = "Autor Teste",
                 Ano = "2022",
@@ -232,6 +240,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
             {
                 livros.Add(new Livro
                 {
+                    Codigo = "Codigo",
                     Titulo = "Título Teste",
                     Autor = "Autor Teste",
                     Ano = "2022",
@@ -249,7 +258,8 @@ namespace Biblioteca.TesteUnitario.Application.Services
                     Ano = "2022",
                     Editora = "Editora Teste",
                     LivroGeneroId = i,
-                });
+                    Codigo = "1e1"
+            });
             }
 
             _repositoryMock.Setup(p => p.GetAll()).Returns(livros);
@@ -280,6 +290,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
             {
                 livros.Add(new Livro
                 {
+                    Codigo = "Codigo",
                     Titulo = "Título Teste",
                     Autor = "Autor Teste",
                     Ano = "2022",
@@ -295,7 +306,8 @@ namespace Biblioteca.TesteUnitario.Application.Services
                     Autor = "Autor Teste",
                     Ano = "2022",
                     Editora = "Editora Teste",
-                    LivroGeneroId = i + ((pagina - 1) * qtdRegistros) ,
+                    Codigo = "1e1",
+                LivroGeneroId = i + ((pagina - 1) * qtdRegistros) ,
                 });
             }
 

@@ -4,6 +4,7 @@ namespace Biblioteca.Domain.Entities
 {
     public class Livro : Entity<Livro>
     {
+        public required string Codigo { get; set; }
         public required string Titulo { get; set; }
         public required string Autor { get; set; }
         public required string Ano { get; set; }

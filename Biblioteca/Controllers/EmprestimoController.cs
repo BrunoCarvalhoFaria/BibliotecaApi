@@ -28,11 +28,11 @@ namespace Biblioteca.Api.Controllers
 
         [HttpPost]
         [Route("realizarEmprestimo")]
-        public IActionResult RealizarEmprestimo(long clienteId, long livroId)
+        public async Task<IActionResult> RealizarEmprestimo(long clienteId, long livroId)
         {
             try
             {
-                return Ok(_emprestimoService.RealizarEmprestimo(clienteId, livroId));
+                return Ok(await _emprestimoService.RealizarEmprestimo(clienteId, livroId));
             }
             catch (Exception ex)
             {

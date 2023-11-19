@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Biblioteca.Application.DTO;
 using Biblioteca.Application.Interfaces;
+using Biblioteca.Domain.DTO;
 using Biblioteca.Domain.Entities;
 using Biblioteca.Domain.Interfaces;
 using System;
@@ -58,7 +59,6 @@ namespace Biblioteca.Application.Services
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -70,7 +70,6 @@ namespace Biblioteca.Application.Services
                 var emprestimo = _emprestimoRepository.GetById(emprestimoId);
                 if (emprestimo == null)
                     throw new Exception("Emprestimo não encontrado.");
-
                 _estoqueService.AlterarEstoque(emprestimo.LivroId, 1);
                 emprestimo.DataDevolucao = DateTimeOffset.Now;
                 _emprestimoRepository.Update(emprestimo);
@@ -78,18 +77,17 @@ namespace Biblioteca.Application.Services
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
 
-        public List<EmprestimoDTO> ObterEmprestimos(long clienteId, bool apenasPendentesDevolucao)
+        public List<EstoqueConsultaDTO> ObterEmprestimos(long clienteId, bool apenasPendentesDevolucao)
         {
             try
             {
                 if(_clienteService.ClienteGetAById(clienteId) == null)
                     throw new Exception("Cliente não encontrado.");
-                return _mapper.Map<List<EmprestimoDTO>>( _emprestimoRepository.Buscar(p => p.ClienteId == clienteId && p.Excluido == false && apenasPendentesDevolucao ? p.DataDevolucao == null : true ).ToList());
+                return  _emprestimoRepository.ObterEmprestimos(clienteId, apenasPendentesDevolucao);
             }
             catch (Exception)
             {

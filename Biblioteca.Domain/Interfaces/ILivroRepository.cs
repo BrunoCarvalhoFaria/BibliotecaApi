@@ -9,5 +9,6 @@ namespace Biblioteca.Domain.Interfaces
 {
     public interface ILivroRepository : IRepository<Livro>
     {
+        List<Livro> ObterTodosComFiltro(string? codigo, string? titulo, string? ano, string? autor, long? livroGeneroId, string? editora);
     }
 }

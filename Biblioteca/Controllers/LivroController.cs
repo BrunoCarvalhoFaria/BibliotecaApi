@@ -46,6 +46,8 @@ namespace Biblioteca.Api.Controllers
             }
             catch (Exception ex)
             {
+                if (ex.Message == "Could not save changes. Please configure your entity type accordingly.")
+                    return BadRequest("Código inserido já existe.");
                 return BadRequest(ex.Message);                
             }
         }
@@ -64,6 +66,19 @@ namespace Biblioteca.Api.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("obterComFiltro")]
+        public IActionResult ObterComFiltroPaginado([FromBody] ObterLivroComFiltroViewModel viewModel)
+        {
+            try
+            {
+                return Ok(_livroService.ObterTodosComFiltro(viewModel.Codigo,viewModel.Titulo,viewModel.Ano,viewModel.Autor,viewModel.LivroGeneroId,viewModel.Editora,viewModel.Pagina,viewModel.QtdRegistros));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         [HttpGet]
         [Route("{id}")]
         public IActionResult ObterPorId(long id)

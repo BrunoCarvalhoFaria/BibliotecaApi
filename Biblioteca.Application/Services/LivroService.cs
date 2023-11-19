@@ -111,5 +111,15 @@ namespace Biblioteca.Application.Services
             return resultado;
         }
 
+        public LivroObterTodosDTO ObterTodosComFiltro(string? codigo, string? titulo, string? ano, string? autor, long? generoId, string? editora, int pagina = 1, int qtdRegistros = 99999)
+        {
+            LivroObterTodosDTO resultado = new();
+            var livros = _mapper.Map<List<LivroDTO>>(_livroRepository.ObterTodosComFiltro(codigo, titulo, ano, autor, generoId, editora));
+            resultado.TotalRegistros = livros.Count;
+            resultado.Livros = livros.Skip((pagina - 1) * qtdRegistros).Take(qtdRegistros).ToList();
+            return resultado;
+        }
+
+
     }
 }
