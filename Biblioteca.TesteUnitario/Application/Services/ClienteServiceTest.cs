@@ -107,5 +107,14 @@ namespace Biblioteca.TesteUnitario.Application.Services
 
             Assert.Equal("Sucesso ao alterar o cliente.", retorno);
         }
+        [Fact(DisplayName = "ObtemClientePorEmail01 - Deve executar a rotina ObtemClientePorEmail uma vez")]
+        public void ObtemClientePorEmail01 ()
+        {
+            string email = "teste@teste.com";
+            var retorno = _clienteService.ObtemClientePorEmail(email);
+            Assert.Equal(null, retorno);
+            _repositoryMock.Verify(p => p.ObtemClientePorEmail(email), Times.Once);
+        }
+
     }
 }

@@ -5,6 +5,8 @@ using Biblioteca.Application.Interfaces;
 using Biblioteca.Application.Services;
 using Biblioteca.Domain.Entities;
 using Biblioteca.Domain.Interfaces;
+using Biblioteca.Infra.Data.Repository;
+using Microsoft.AspNetCore.Components.Forms;
 using Moq;
 
 namespace Biblioteca.TesteUnitario.Application.Services
@@ -325,7 +327,43 @@ namespace Biblioteca.TesteUnitario.Application.Services
                 Assert.Equal(resultadoEsperado.Livros[i].LivroGeneroId, resultado.Livros[i].LivroGeneroId);
             }
         }
+        [Fact(DisplayName = "ObterTodosComFiltro01 - Deve executar o método ObterTodosComFiltro uma vez")]
+        public void ObterTodosComFiltro01()
+        {
+                        
+            List<Livro> resultado = new();
+            List<LivroDTO> resultado2 = new();
+            for (int i = 0; i < 20; i++)
+            {
+                resultado.Add(new Livro
+                {
+                    Codigo = "Codigo",
+                    Titulo = "Título Teste",
+                    Autor = "Autor Teste",
+                    Ano = "2022",
+                    Editora = "Editora Teste",
+                    LivroGeneroId = i,
+                });
+                resultado2.Add(new LivroDTO
+                {
+                    Codigo = "Codigo",
+                    Titulo = "Título Teste",
+                    Autor = "Autor Teste",
+                    Ano = "2022",
+                    Editora = "Editora Teste",
+                    LivroGeneroId = i,
+                });
+            }
 
+            _repositoryMock.Setup(p => p.ObterTodosComFiltro(null, null, null, null, null, null)).Returns(resultado);
 
+            resultado2 = resultado2.Skip(15).ToList();
+            var retorno = _livroService.ObterTodosComFiltro(null,null , null, null, null, null,2,15);
+            for (int i = 0; i < retorno.Livros.Count; i++)
+            {
+                Assert.Equal(resultado2[i].LivroGeneroId, retorno.Livros[i].LivroGeneroId);
+            }
+            Assert.Equal(20, retorno.TotalRegistros);
+        }
     }
 }

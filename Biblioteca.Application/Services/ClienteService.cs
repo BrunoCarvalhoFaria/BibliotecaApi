@@ -91,7 +91,16 @@ namespace Biblioteca.Application.Services
         }
         public ClienteDTO ObtemClientePorEmail(string email)
         {
-            return _mapper.Map<ClienteDTO>(_clienteRepository.ObtemClientePorEmail(email));
+            try
+            {
+                return _mapper.Map<ClienteDTO>(_clienteRepository.ObtemClientePorEmail(email));
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

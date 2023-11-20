@@ -102,5 +102,12 @@ namespace Biblioteca.TesteUnitario.Application.Services
             _estoqueService.PostEstoque(estoqueDTO);
             _repositoryMock.Verify(p => p.Add(estoque), Times.Once);
         }
+        [Fact(DisplayName = "ListarEstoque01 - deve executar a rotina ListarEstoque uma vez")]
+        public void ListarEstoque01()
+        {
+            List<long> livroIds = new(new long[] { 1, 2, 3 });
+            _estoqueService.ListarEstoque(livroIds);
+            _repositoryMock.Verify(p => p.ListarEstoque(livroIds), Times.Once);
+        }
     }
 }

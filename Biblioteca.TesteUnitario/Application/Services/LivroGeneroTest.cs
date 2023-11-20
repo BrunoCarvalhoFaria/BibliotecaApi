@@ -88,6 +88,13 @@ namespace Biblioteca.TesteUnitario.Application.Services
             _repositoryMock.Verify(p => p.Update(new LivroGenero("teste")), Times.Once);
             Assert.Equal("Sucesso ao alterar o livroGenero.", resultado);
         }
+        [Fact(DisplayName = "Obtertodos01 - Deve executar a rotina GettAll uma vez")]
+        public void Obtertodos01()
+        {
+            _repositoryMock.Setup(p => p.GetAll()).Returns(new List<LivroGenero>());
 
+            _livroGeneroService.Obtertodos();
+            _repositoryMock.Verify(p => p.GetAll(),Times.Once);
+        }
     }
 }
