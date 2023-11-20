@@ -19,6 +19,7 @@ namespace Biblioteca.Infra.CrossCutting.IoC
             services.AddScoped<ILivroGeneroRepository, LivroGeneroRepository>();
             services.AddScoped<IEstoqueRepository, EstoqueRepository>();
             services.AddScoped<IEmprestimoRepository, EmprestimoRepository>();
+            services.AddScoped<IRabbitMensagemRepository, RabbitMensagemRepository>();
 
             services.AddScoped<IUsuarioAutorizacaoService,  UsuarioAutorizacaoService>();
             services.AddScoped<ILivroService, LivroService>();
@@ -27,6 +28,7 @@ namespace Biblioteca.Infra.CrossCutting.IoC
             services.AddScoped<ILivroGeneroService, LivroGeneroService>();
             services.AddScoped<IEstoqueService, EstoqueService>();
             services.AddScoped<IEmprestimoService, EmprestimoService>();
+            services.AddScoped<IRabbitMensagemService, RabbitMensagemService>();
         }
     }
 }

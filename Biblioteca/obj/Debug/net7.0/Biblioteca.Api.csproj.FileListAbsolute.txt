@@ -302,3 +302,5 @@ C:\Projetos\BibliotecaApi\Biblioteca\obj\Debug\net7.0\refint\Biblioteca.Api.dll
 C:\Projetos\BibliotecaApi\Biblioteca\obj\Debug\net7.0\Biblioteca.Api.pdb
 C:\Projetos\BibliotecaApi\Biblioteca\obj\Debug\net7.0\Biblioteca.Api.genruntimeconfig.cache
 C:\Projetos\BibliotecaApi\Biblioteca\obj\Debug\net7.0\ref\Biblioteca.Api.dll
+C:\Projetos\BibliotecaApi\Biblioteca\bin\Debug\net7.0\RabbitMQ.Client.dll
+C:\Projetos\BibliotecaApi\Biblioteca\obj\Debug\net7.0\Biblioteca.Api.MvcApplicationPartsAssemblyInfo.cs

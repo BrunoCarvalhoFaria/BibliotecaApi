@@ -14,6 +14,7 @@ namespace Biblioteca.Application.AutoMapper
             CreateMap<LivroGeneroDTO, LivroGenero>().ReverseMap();
             CreateMap<EmprestimoDTO, Emprestimo>().ReverseMap();
             CreateMap<EstoqueDTO, Estoque>().ReverseMap();
+            CreateMap<RabbitMensagemDTO, RabbitMensagem>().ReverseMap();
         }
     }
 }

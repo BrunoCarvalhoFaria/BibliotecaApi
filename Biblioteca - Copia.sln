@@ -5,7 +5,6 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Biblioteca.Api", "Biblioteca.Api.csproj", "{DAD136F6-CF8F-4D8A-A583-22ADC63241CB}"
 	ProjectSection(ProjectDependencies) = postProject
-		{1421A8D7-2DF0-42CD-B4FE-51FDCDED0B7E} = {1421A8D7-2DF0-42CD-B4FE-51FDCDED0B7E}
 		{2F05C82A-5A6B-45DF-A1C1-CB2E484B3BC0} = {2F05C82A-5A6B-45DF-A1C1-CB2E484B3BC0}
 		{3CB7983F-8234-48B2-84C7-52D4AB6A3CE8} = {3CB7983F-8234-48B2-84C7-52D4AB6A3CE8}
 		{434798CC-E49C-43AA-B015-C609A1FE5D95} = {434798CC-E49C-43AA-B015-C609A1FE5D95}
@@ -26,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Biblioteca.Infra.Data", "..
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Biblioteca.Domain.Core", "..\Biblioteca.Domain.Core\Biblioteca.Domain.Core.csproj", "{2F05C82A-5A6B-45DF-A1C1-CB2E484B3BC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblioteca.TesteUnitario", "..\Biblioteca.TesteUnitario\Biblioteca.TesteUnitario.csproj", "{1421A8D7-2DF0-42CD-B4FE-51FDCDED0B7E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rabbit.Consumer", "..\Rabbit.Consumer\Rabbit.Consumer.csproj", "{9A8CB2F3-B137-4A57-9697-2CDE2BDD679C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,10 +61,10 @@ Global
 		{2F05C82A-5A6B-45DF-A1C1-CB2E484B3BC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F05C82A-5A6B-45DF-A1C1-CB2E484B3BC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F05C82A-5A6B-45DF-A1C1-CB2E484B3BC0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1421A8D7-2DF0-42CD-B4FE-51FDCDED0B7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1421A8D7-2DF0-42CD-B4FE-51FDCDED0B7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1421A8D7-2DF0-42CD-B4FE-51FDCDED0B7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1421A8D7-2DF0-42CD-B4FE-51FDCDED0B7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A8CB2F3-B137-4A57-9697-2CDE2BDD679C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A8CB2F3-B137-4A57-9697-2CDE2BDD679C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A8CB2F3-B137-4A57-9697-2CDE2BDD679C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A8CB2F3-B137-4A57-9697-2CDE2BDD679C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -497,6 +497,10 @@
               "target": "Package",
               "version": "[3.3.6, )"
             },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.7.0, )"
+            },
             "RestSharp": {
               "target": "Package",
               "version": "[110.2.0, )"
@@ -708,6 +712,10 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.19.4, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

@@ -639,6 +639,18 @@
           }
         }
       },
+      "RabbitMQ.Client/6.7.0": {
+        "dependencies": {
+          "System.Memory": "4.5.5",
+          "System.Threading.Channels": "7.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.7.0.0"
+          }
+        }
+      },
       "RestSharp/110.2.0": {
         "dependencies": {
           "System.Text.Json": "7.0.3"
@@ -835,6 +847,7 @@
           "System.Text.Encodings.Web": "7.0.0"
         }
       },
+      "System.Threading.Channels/7.0.0": {},
       "System.Threading.Tasks/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -938,6 +951,7 @@
           "Microsoft.Extensions.Configuration.Json": "7.0.0",
           "MySql.Data": "8.1.0",
           "Ninject": "3.3.6",
+          "RabbitMQ.Client": "6.7.0",
           "RestSharp": "110.2.0"
         },
         "runtime": {
@@ -1463,6 +1477,13 @@
       "path": "portable.bouncycastle/1.9.0",
       "hashPath": "portable.bouncycastle.1.9.0.nupkg.sha512"
     },
+    "RabbitMQ.Client/6.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-b8Jn6dCWZjBmge1KX3hbXNtopBPYjFfFAFRQ7BMlgxWonGBAR19JpLr4V5OiEf8TRx7bWhi/SvLsPQVpL+lxng==",
+      "path": "rabbitmq.client/6.7.0",
+      "hashPath": "rabbitmq.client.6.7.0.nupkg.sha512"
+    },
     "RestSharp/110.2.0": {
       "type": "package",
       "serviceable": true,
@@ -1658,6 +1679,13 @@
       "sha512": "sha512-AyjhwXN1zTFeIibHimfJn6eAsZ7rTBib79JQpzg8WAuR/HKDu9JGNHTuu3nbbXQ/bgI+U4z6HtZmCHNXB1QXrQ==",
       "path": "system.text.json/7.0.3",
       "hashPath": "system.text.json.7.0.3.nupkg.sha512"
+    },
+    "System.Threading.Channels/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qmeeYNROMsONF6ndEZcIQ+VxR4Q/TX/7uIVLJqtwIWL7dDWeh0l1UIqgo4wYyjG//5lUNhwkLDSFl+pAWO6oiA==",
+      "path": "system.threading.channels/7.0.0",
+      "hashPath": "system.threading.channels.7.0.0.nupkg.sha512"
     },
     "System.Threading.Tasks/4.3.0": {
       "type": "package",
