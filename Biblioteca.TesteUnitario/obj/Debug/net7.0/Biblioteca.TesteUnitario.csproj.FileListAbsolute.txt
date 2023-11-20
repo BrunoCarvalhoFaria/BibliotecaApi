@@ -162,3 +162,4 @@ C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\refint\Bibli
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.pdb
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\Biblioteca.TesteUnitario.genruntimeconfig.cache
 C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\obj\Debug\net7.0\ref\Biblioteca.TesteUnitario.dll
+C:\Projetos\BibliotecaApi\Biblioteca.TesteUnitario\bin\Debug\net7.0\RabbitMQ.Client.dll
