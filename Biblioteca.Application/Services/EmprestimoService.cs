@@ -21,12 +21,14 @@ namespace Biblioteca.Application.Services
         private readonly IClienteService _clienteService;
         private readonly ILivroService _livroService;
         private readonly IEstoqueService _estoqueService;
+        private readonly IRabbitMensagemService _rabbitMensagemService;
         public EmprestimoService(IEmprestimoRepository emprestimoRepository,
             IMapper mapper,
             IUsuarioAutorizacaoService usuarioAutorizacaoService,
             IClienteService clienteService,
             ILivroService livroService,
-            IEstoqueService estoqueService
+            IEstoqueService estoqueService,
+            IRabbitMensagemService rabbitMensagemService
             )
         {
             _emprestimoRepository = emprestimoRepository;
@@ -35,6 +37,7 @@ namespace Biblioteca.Application.Services
             _livroService = livroService;
             _mapper = mapper;
             _estoqueService = estoqueService;
+            _rabbitMensagemService = rabbitMensagemService;
         }
 
         public async Task<long> RealizarEmprestimo(long clienteId, long livroId)
@@ -56,6 +59,15 @@ namespace Biblioteca.Application.Services
                     LivroId = livroId
                 };
                 await _emprestimoRepository.Add(emprestimo);
+                _rabbitMensagemService.EnviarMensagem(new RabbitMensagemDTO
+                {
+                    Id = emprestimo.Id,
+                    LivroId = emprestimo.LivroId,
+                    LivroNome = _livroService.LivroGetAById(emprestimo.LivroId).Titulo,
+                    ClienteId = emprestimo.ClienteId,
+                    ClienteNome = _clienteService.ClienteGetAById(emprestimo.ClienteId).Nome,
+                    Operacao = "emprestimo"
+                });
                 return emprestimo.Id;
             }
             catch (Exception)
@@ -74,6 +86,15 @@ namespace Biblioteca.Application.Services
                 _estoqueService.AlterarEstoque(emprestimo.LivroId, 1);
                 emprestimo.DataDevolucao = DateTimeOffset.Now;
                 _emprestimoRepository.Update(emprestimo);
+                _rabbitMensagemService.EnviarMensagem(new RabbitMensagemDTO
+                {
+                    Id = emprestimo.Id,
+                    LivroId = emprestimo.LivroId,
+                    LivroNome = _livroService.LivroGetAById(emprestimo.LivroId).Titulo,
+                    ClienteId = emprestimo.ClienteId,
+                    ClienteNome = _clienteService.ClienteGetAById(emprestimo.ClienteId).Nome,
+                    Operacao = "devolucao"
+                });
                 return emprestimo.Id;
             }
             catch (Exception)
@@ -86,8 +107,8 @@ namespace Biblioteca.Application.Services
         {
             try
             {
-                
-                return  _emprestimoRepository.ObterEmprestimos(clienteId, apenasPendentesDevolucao, dataInicial, dataFinal);
+
+                return _emprestimoRepository.ObterEmprestimos(clienteId, apenasPendentesDevolucao, dataInicial, dataFinal);
             }
             catch (Exception)
             {

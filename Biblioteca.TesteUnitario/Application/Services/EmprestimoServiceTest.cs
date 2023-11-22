@@ -24,12 +24,14 @@ namespace Biblioteca.TesteUnitario.Application.Services
         private readonly Mock<IClienteService> _clienteService;
         private readonly Mock<ILivroService> _livroService;
         private readonly Mock<IEstoqueService> _estoqueService;
+        private readonly Mock<IRabbitMensagemService> _rabbitMensagemServiceMock;
         public EmprestimoServiceTest()
         {
             _usuarioAutorizacaoServiceMock = new Mock<IUsuarioAutorizacaoService>();
             _clienteService = new Mock<IClienteService>();
             _livroService = new Mock<ILivroService>();
             _estoqueService = new Mock<IEstoqueService>();
+            _rabbitMensagemServiceMock = new Mock<IRabbitMensagemService>();
 
             _repositoryMock = new Mock<IEmprestimoRepository>();
             var configuration = new MapperConfiguration(options =>
@@ -39,7 +41,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
             });
             IMapper mapper = new Mapper(configuration);
 
-            _emprestimoService = new EmprestimoService(_repositoryMock.Object, mapper, _usuarioAutorizacaoServiceMock.Object, _clienteService.Object, _livroService.Object, _estoqueService.Object);
+            _emprestimoService = new EmprestimoService(_repositoryMock.Object, mapper, _usuarioAutorizacaoServiceMock.Object, _clienteService.Object, _livroService.Object, _estoqueService.Object, _rabbitMensagemServiceMock.Object);
         }
         [Fact(DisplayName = "RealizarEmprestimo01 - Deve retornar erro por não encontrar o cliente")]
         public async Task RealizarEmprestimo01()
@@ -55,9 +57,9 @@ namespace Biblioteca.TesteUnitario.Application.Services
                 LivroGeneroId = 1,
             };
             _livroService.Setup(p => p.LivroGetAById(livroId)).Returns(livro);
-            var exception = await  Assert.ThrowsAsync<Exception>(() => _emprestimoService.RealizarEmprestimo(clienteId, livroId));
+            var exception = await Assert.ThrowsAsync<Exception>(() => _emprestimoService.RealizarEmprestimo(clienteId, livroId));
             Assert.Equal("Cliente não encontrado.", exception.Message);
-            
+
         }
         [Fact(DisplayName = "RealizarEmprestimo02 - Deve retornar erro por não encontrar o livro")]
         public async Task RealizarEmprestimo02()
@@ -67,7 +69,7 @@ namespace Biblioteca.TesteUnitario.Application.Services
             ClienteDTO cliente = new ClienteDTO("Email Teste", "NomeTeste");
 
             _clienteService.Setup(p => p.ClienteGetAById(clienteId)).Returns(cliente);
-            var exception = await  Assert.ThrowsAsync<Exception>(() => _emprestimoService.RealizarEmprestimo(clienteId, livroId));
+            var exception = await Assert.ThrowsAsync<Exception>(() => _emprestimoService.RealizarEmprestimo(clienteId, livroId));
             Assert.Equal("Livro não encontrado.", exception.Message);
         }
         [Fact(DisplayName = "RealizarEmprestimo03 - Deve realizar o emprestimo")]
@@ -132,11 +134,15 @@ namespace Biblioteca.TesteUnitario.Application.Services
             };
 
             _repositoryMock.Setup(p => p.GetById(emprestimoId)).Returns(emprestimo);
-
+            _livroService.Setup(p => p.LivroGetAById(0)).Returns(new LivroDTO
+            {
+                Titulo = "teste"
+            });
+            _clienteService.Setup(p => p.ClienteGetAById(0)).Returns(new ClienteDTO("teste", "teste"));
             var resultado = _emprestimoService.RealizarDevolucao(emprestimoId);
             Assert.Equal(0, resultado);
         }
-        
+
         [Fact(DisplayName = "ObterEmprestimos02 - Deve retornar todos os emprestimos do cliente")]
         public void ObterEmprestimos02()
         {
@@ -154,12 +160,12 @@ namespace Biblioteca.TesteUnitario.Application.Services
             clienteEmprestimos.Add(emprestimoDevolvido);
             clienteEmprestimos.Add(emprestimoNaoDevolvido);
             var clienteEmprestimoNaoDevolvidos = clienteEmprestimos.Where(s => s.DataDevolucao == DateTimeOffset.MinValue).ToList();
-            _repositoryMock.Setup(p=>p.ObterEmprestimos(clienteId,true, null, null)).Returns(clienteEmprestimoNaoDevolvidos);
-            _repositoryMock.Setup(p => p.ObterEmprestimos(clienteId, false,null,null)).Returns(clienteEmprestimos);
+            _repositoryMock.Setup(p => p.ObterEmprestimos(clienteId, true, null, null)).Returns(clienteEmprestimoNaoDevolvidos);
+            _repositoryMock.Setup(p => p.ObterEmprestimos(clienteId, false, null, null)).Returns(clienteEmprestimos);
             var resultado = _emprestimoService.ObterEmprestimos(clienteId, apenasEmprestimosPendentes, null, null);
             for (int i = 0; i < resultado.Count; i++)
             {
-                Assert.Equal(clienteEmprestimos[i].LivroId,  resultado[i].LivroId);
+                Assert.Equal(clienteEmprestimos[i].LivroId, resultado[i].LivroId);
             }
         }
         [Fact(DisplayName = "ObterEmprestimos03 - Deve retornar todos os emprestimos pendentes de devolução do cliente")]

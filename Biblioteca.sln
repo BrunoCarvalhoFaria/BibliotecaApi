@@ -27,8 +27,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Biblioteca.Domain.Core", "B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Biblioteca.TesteUnitario", "Biblioteca.TesteUnitario\Biblioteca.TesteUnitario.csproj", "{FB0E6F75-8817-4D93-BB45-CCA6D922E04D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rabbit.Consumer", "Rabbit.Consumer\Rabbit.Consumer.csproj", "{93F6CC0F-7C60-468E-B2C4-E3CFD0764E07}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,10 +65,6 @@ Global
 		{FB0E6F75-8817-4D93-BB45-CCA6D922E04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB0E6F75-8817-4D93-BB45-CCA6D922E04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB0E6F75-8817-4D93-BB45-CCA6D922E04D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93F6CC0F-7C60-468E-B2C4-E3CFD0764E07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93F6CC0F-7C60-468E-B2C4-E3CFD0764E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93F6CC0F-7C60-468E-B2C4-E3CFD0764E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93F6CC0F-7C60-468E-B2C4-E3CFD0764E07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

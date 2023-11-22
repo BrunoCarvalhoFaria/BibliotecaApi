@@ -45,7 +45,7 @@ namespace Biblioteca.Api.Controllers
             }
         }
         [HttpGet]
-        [Route("{id}")]
+        [Route("")]
         public IActionResult ObterClientes()
         {
             try
