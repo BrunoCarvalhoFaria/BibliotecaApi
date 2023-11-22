@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj": {}
+    "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj": {
+    "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj",
+        "projectUniqueName": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj",
         "projectName": "Biblioteca.Domain.Core",
-        "projectPath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj",
+        "projectPath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj",
         "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain.Core\\obj\\",
+        "outputPath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",

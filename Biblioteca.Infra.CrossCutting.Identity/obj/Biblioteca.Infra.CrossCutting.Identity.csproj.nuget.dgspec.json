@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\BibliotecaApi\\Biblioteca.Infra.CrossCutting.Identity\\Biblioteca.Infra.CrossCutting.Identity.csproj": {}
+    "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Infra.CrossCutting.Identity\\Biblioteca.Infra.CrossCutting.Identity.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj": {
+    "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj",
+        "projectUniqueName": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj",
         "projectName": "Biblioteca.Domain.Core",
-        "projectPath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj",
+        "projectPath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj",
         "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain.Core\\obj\\",
+        "outputPath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain\\Biblioteca.Domain.csproj": {
+    "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain\\Biblioteca.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain\\Biblioteca.Domain.csproj",
+        "projectUniqueName": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain\\Biblioteca.Domain.csproj",
         "projectName": "Biblioteca.Domain",
-        "projectPath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain\\Biblioteca.Domain.csproj",
+        "projectPath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain\\Biblioteca.Domain.csproj",
         "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain\\obj\\",
+        "outputPath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -93,8 +93,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj": {
-                "projectPath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj"
+              "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj": {
+                "projectPath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj"
               }
             }
           }
@@ -150,14 +150,14 @@
         }
       }
     },
-    "C:\\Projetos\\BibliotecaApi\\Biblioteca.Infra.CrossCutting.Identity\\Biblioteca.Infra.CrossCutting.Identity.csproj": {
+    "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Infra.CrossCutting.Identity\\Biblioteca.Infra.CrossCutting.Identity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Infra.CrossCutting.Identity\\Biblioteca.Infra.CrossCutting.Identity.csproj",
+        "projectUniqueName": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Infra.CrossCutting.Identity\\Biblioteca.Infra.CrossCutting.Identity.csproj",
         "projectName": "Biblioteca.Infra.CrossCutting.Identity",
-        "projectPath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Infra.CrossCutting.Identity\\Biblioteca.Infra.CrossCutting.Identity.csproj",
+        "projectPath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Infra.CrossCutting.Identity\\Biblioteca.Infra.CrossCutting.Identity.csproj",
         "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Infra.CrossCutting.Identity\\obj\\",
+        "outputPath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Infra.CrossCutting.Identity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -174,8 +174,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain\\Biblioteca.Domain.csproj": {
-                "projectPath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain\\Biblioteca.Domain.csproj"
+              "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain\\Biblioteca.Domain.csproj": {
+                "projectPath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain\\Biblioteca.Domain.csproj"
               }
             }
           }

@@ -20,7 +20,7 @@ namespace Biblioteca.Infra.Data.Repository
         public void EnviarMensagem(RabbitMensagem mensagem)
         {
             var factory = new ConnectionFactory { 
-                HostName = "localhost",
+                HostName = "rabbitmq",
                 UserName = "guest",
                 Password = "guest"
                 

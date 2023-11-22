@@ -114,15 +114,17 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     .AddEntityFrameworkStores<BibliotecaDbContext>()
     .AddDefaultTokenProviders();
 
-builder.Services.AddAuthentication(options => {
+builder.Services.AddAuthentication(options =>
+{
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
-.AddJwtBearer(jwt => {
+.AddJwtBearer(jwt =>
+{
     jwt.RequireHttpsMetadata = false;
     jwt.SaveToken = true;
-    
+
     jwt.TokenValidationParameters = tokenValidationParams;
     jwt.Events = new JwtBearerEvents
     {
@@ -157,17 +159,20 @@ app.UseCors(builder => builder.SetIsOriginAllowed(origin => true)
     .AllowAnyHeader()
     .AllowAnyOrigin()
     .AllowCredentials()
-    .WithOrigins(devClient)) ;
+    .WithOrigins(devClient));
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"
     );
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI();
+
+using (var scope = app.Services.CreateScope())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    var db = scope.ServiceProvider.GetRequiredService<BibliotecaDbContext>();
+    db.Database.Migrate();
 }
 
 app.UseHttpsRedirection();
@@ -182,4 +187,6 @@ app.MapControllers();
 app.UseSwaggerUI();
 
 app.Run();
+
+   
 

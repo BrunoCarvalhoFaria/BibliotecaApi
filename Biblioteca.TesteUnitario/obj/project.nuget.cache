@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nmeTZdzsY/e9YqItYWjQo9QWFaxo0tedi0myi1pifWGFxw6Q5JZKfr4HWHIEZVXiIUskC+Xg/TyMd2wCsu94NA==",
+  "dgSpecHash": "1DNl2atTqGhPW0xQ8VGTNxK16rqVzhZR02E2k9a6GZT1bDwD1bdJavC59NdkPlpR2J1+o2FqfIN/p8/UqDAfMw==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.TesteUnitario\\Biblioteca.TesteUnitario.csproj",
+  "projectFilePath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.TesteUnitario\\Biblioteca.TesteUnitario.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bruno\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",

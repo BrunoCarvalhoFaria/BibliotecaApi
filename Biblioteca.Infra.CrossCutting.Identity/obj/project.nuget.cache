@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j5ptj7wgnMgwVSxMZnUen1vIbfbvxcP8iZrtn92acw4SNl8BTNee1Hv4FSxjpWGvHY2wBWvVWZ040cps/ygP4w==",
+  "dgSpecHash": "ju0IBg5TEsLZahtKcPiQsVutykpee9ULXmoDOCv2Dzi1MZ4iINGtS4L0VyngEeXO4ZaofGeG3fUmJc/F3ttvjw==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Infra.CrossCutting.Identity\\Biblioteca.Infra.CrossCutting.Identity.csproj",
+  "projectFilePath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Infra.CrossCutting.Identity\\Biblioteca.Infra.CrossCutting.Identity.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bruno\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",

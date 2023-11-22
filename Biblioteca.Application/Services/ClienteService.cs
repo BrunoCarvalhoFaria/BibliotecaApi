@@ -50,6 +50,19 @@ namespace Biblioteca.Application.Services
             }
         }
 
+        public List<ClienteDTO> ObterTodos()
+        {
+            try
+            {
+                return _mapper.Map<List<ClienteDTO>>(_clienteRepository.GetAll());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public string ClienteDelete(long id)
         {
             try

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T0/NJj2ouO5eS0j6qETITZd0rwn+o0vaKyGYrhcgaaxiVWthvaUFZF5wGcQTeQ9rshNrxeUCFNgoQ0jJ42JlaQ==",
+  "dgSpecHash": "uIRuk17j26JQvhBHkKfdpclyPbbOta1YRyHW3afHXU73pU5otRtd0PrVluVST7zzlW+ELgMEkpAAYqmDryluJw==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Infra.Data\\Biblioteca.Infra.Data.csproj",
+  "projectFilePath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Infra.Data\\Biblioteca.Infra.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bruno\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\dapper\\2.0.151\\dapper.2.0.151.nupkg.sha512",

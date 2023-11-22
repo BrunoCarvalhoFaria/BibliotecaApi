@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V2Xv1Prw4/xq9ANsjdU+EqwHwk/Mhd0XcUHezp7nUPPyev1BwacL/4d/aB+S+AcWWL1fK/kQkuDv4LQvmBcPWg==",
+  "dgSpecHash": "qvnWxPlOurN5fMXfh8tuCwpZ3FXXn9K3PrujwfR/kVDjBdhmiclG54tur/64Xn+gzL2ezrKICnVpgifR8EqT0w==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Infra.CrossCutting.IoC\\Biblioteca.Infra.CrossCutting.IoC.csproj",
+  "projectFilePath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Infra.CrossCutting.IoC\\Biblioteca.Infra.CrossCutting.IoC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bruno\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\dapper\\2.0.151\\dapper.2.0.151.nupkg.sha512",

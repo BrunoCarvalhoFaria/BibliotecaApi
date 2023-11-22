@@ -34,3 +34,15 @@ C:\Projetos\BibliotecaApi\Biblioteca.Domain.Core\obj\Debug\net7.0\Biblioteca.Dom
 C:\Projetos\BibliotecaApi\Biblioteca.Domain.Core\obj\Debug\net7.0\refint\Biblioteca.Domain.Core.dll
 C:\Projetos\BibliotecaApi\Biblioteca.Domain.Core\obj\Debug\net7.0\Biblioteca.Domain.Core.pdb
 C:\Projetos\BibliotecaApi\Biblioteca.Domain.Core\obj\Debug\net7.0\ref\Biblioteca.Domain.Core.dll
+C:\Projetos\Biblioteca\BibliotecaApi\Biblioteca.Domain.Core\bin\Debug\net7.0\Biblioteca.Domain.Core.deps.json
+C:\Projetos\Biblioteca\BibliotecaApi\Biblioteca.Domain.Core\bin\Debug\net7.0\Biblioteca.Domain.Core.dll
+C:\Projetos\Biblioteca\BibliotecaApi\Biblioteca.Domain.Core\bin\Debug\net7.0\Biblioteca.Domain.Core.pdb
+C:\Projetos\Biblioteca\BibliotecaApi\Biblioteca.Domain.Core\obj\Debug\net7.0\Biblioteca.Domain.Core.csproj.AssemblyReference.cache
+C:\Projetos\Biblioteca\BibliotecaApi\Biblioteca.Domain.Core\obj\Debug\net7.0\Biblioteca.Domain.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\Biblioteca\BibliotecaApi\Biblioteca.Domain.Core\obj\Debug\net7.0\Biblioteca.Domain.Core.AssemblyInfoInputs.cache
+C:\Projetos\Biblioteca\BibliotecaApi\Biblioteca.Domain.Core\obj\Debug\net7.0\Biblioteca.Domain.Core.AssemblyInfo.cs
+C:\Projetos\Biblioteca\BibliotecaApi\Biblioteca.Domain.Core\obj\Debug\net7.0\Biblioteca.Domain.Core.csproj.CoreCompileInputs.cache
+C:\Projetos\Biblioteca\BibliotecaApi\Biblioteca.Domain.Core\obj\Debug\net7.0\Biblioteca.Domain.Core.dll
+C:\Projetos\Biblioteca\BibliotecaApi\Biblioteca.Domain.Core\obj\Debug\net7.0\refint\Biblioteca.Domain.Core.dll
+C:\Projetos\Biblioteca\BibliotecaApi\Biblioteca.Domain.Core\obj\Debug\net7.0\Biblioteca.Domain.Core.pdb
+C:\Projetos\Biblioteca\BibliotecaApi\Biblioteca.Domain.Core\obj\Debug\net7.0\ref\Biblioteca.Domain.Core.dll

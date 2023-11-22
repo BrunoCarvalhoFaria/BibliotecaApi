@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OTTPwBTReLDxDT3DK35jEXUarMGF7SJyPD+W9zN6haq4Xs6CpORY2Ro8e6nGl/jztIASJvkfRQU29tKJ7qJLuA==",
+  "dgSpecHash": "eDnxLQFnsb3t74pwNdM8UGFDI4gvElXFI81sXwk+1ib9rkdA+IAcVquKbUODnZIipwtUDk/dkLcD3HfuyIky0g==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\BibliotecaApi\\Biblioteca\\Biblioteca.Api.csproj",
+  "projectFilePath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca\\Biblioteca.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bruno\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

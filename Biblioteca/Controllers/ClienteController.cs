@@ -46,6 +46,20 @@ namespace Biblioteca.Api.Controllers
         }
         [HttpGet]
         [Route("{id}")]
+        public IActionResult ObterClientes()
+        {
+            try
+            {
+                return Ok(_clienteService.ObterTodos());
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("{id}")]
         public IActionResult ObterClientePorId(long id)
         {
             try

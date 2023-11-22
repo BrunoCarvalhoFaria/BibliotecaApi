@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NSJxOg2YZy1Cb6HmYcuYwd6WJfwBllTSiFshkTK179FnPHhtqnt3L6LMv7v7O4DNYV+pO1xQOx0Ee0TApuy80A==",
+  "dgSpecHash": "juDY5GEwOXWVSM9d440GydubpFYckgqN6xJ7cOwlJa2ZILtvTWPYfBJO1r1Q1g/5WABWwL4NXJVKrjH7eNF31Q==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Application\\Biblioteca.Application.csproj",
+  "projectFilePath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Application\\Biblioteca.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bruno\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\dapper\\2.0.151\\dapper.2.0.151.nupkg.sha512",

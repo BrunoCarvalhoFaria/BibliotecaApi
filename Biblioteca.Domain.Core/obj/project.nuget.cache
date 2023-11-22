@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V4+StTpayqdae3N2rN9nMKmEf//+wdnDJtbhxXdzKwxLUWDea0UjZ4yiNJsD0ybWRVD/AN8kTorb2bIIPjHydw==",
+  "dgSpecHash": "f/KQPJPj568GqMD4ExpPlivDNK9UnJSn95wOt/2C6kkYeFTKzPmZSxCd3GMjVk7fzNLPCtOubZg+Bc3G4juJpg==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj",
+  "projectFilePath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bruno\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",

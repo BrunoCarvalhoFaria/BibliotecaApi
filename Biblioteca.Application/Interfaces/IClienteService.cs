@@ -15,5 +15,6 @@ namespace Biblioteca.Application.Interfaces
         string ClienteDelete(long id);
         string ClientePut(ClienteDTO dto);
         ClienteDTO ObtemClientePorEmail(string email);
+        List<ClienteDTO> ObterTodos();
     }
 }

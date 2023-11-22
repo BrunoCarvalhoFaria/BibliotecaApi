@@ -12,8 +12,8 @@ namespace Biblioteca.Infra.Data
     public class BibliotecaDbContext : IdentityDbContext<ApplicationUser>
     {
         public BibliotecaDbContext(DbContextOptions<BibliotecaDbContext> options) : base(options) 
-        { 
-
+        {
+            
         }
 
         public DbSet<ApplicationUser> ApplicationUser { get; set; }

@@ -4857,11 +4857,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Application\\Biblioteca.Application.csproj",
+      "projectUniqueName": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Application\\Biblioteca.Application.csproj",
       "projectName": "Biblioteca.Application",
-      "projectPath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Application\\Biblioteca.Application.csproj",
+      "projectPath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Application\\Biblioteca.Application.csproj",
       "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Application\\obj\\",
+      "outputPath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4878,11 +4878,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj": {
-              "projectPath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj"
+            "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj": {
+              "projectPath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Domain.Core\\Biblioteca.Domain.Core.csproj"
             },
-            "C:\\Projetos\\BibliotecaApi\\Biblioteca.Infra.Data\\Biblioteca.Infra.Data.csproj": {
-              "projectPath": "C:\\Projetos\\BibliotecaApi\\Biblioteca.Infra.Data\\Biblioteca.Infra.Data.csproj"
+            "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Infra.Data\\Biblioteca.Infra.Data.csproj": {
+              "projectPath": "C:\\Projetos\\Biblioteca\\BibliotecaApi\\Biblioteca.Infra.Data\\Biblioteca.Infra.Data.csproj"
             }
           }
         }
